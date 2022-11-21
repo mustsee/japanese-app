@@ -37,4 +37,4 @@ function Main(props) {
   );
 }
 
-export default { Root, Main };
+export { Root, Main };
