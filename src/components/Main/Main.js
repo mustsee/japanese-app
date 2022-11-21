@@ -87,10 +87,16 @@ const Main = (props) => {
         )}
       </Card>
       <Box sx={{ display: "flex", gap: "1em" }}>
-        <Button fullWidth variant="outlined" onClick={handleClickOnPrevious}>
+        <Button
+          sx={{ userSelect: "none" }}
+          fullWidth
+          variant="outlined"
+          onClick={handleClickOnPrevious}
+        >
           Previous
         </Button>
         <Button
+          sx={{ userSelect: "none" }}
           fullWidth
           variant="outlined"
           color="info"
@@ -99,7 +105,12 @@ const Main = (props) => {
         >
           Clear
         </Button>
-        <Button fullWidth variant="outlined" onClick={handleClickOnNext}>
+        <Button
+          sx={{ userSelect: "none" }}
+          fullWidth
+          variant="outlined"
+          onClick={handleClickOnNext}
+        >
           Next
         </Button>
       </Box>
