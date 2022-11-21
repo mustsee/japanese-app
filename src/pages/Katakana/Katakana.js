@@ -1,4 +1,4 @@
-import Layout from "components/Layout";
+import { MainSection } from "components/Layout";
 import { Main } from "components/Main";
 
 const katakana = [
@@ -33,9 +33,9 @@ function Katakana() {
   return (
     <>
       <div />
-      <Layout.Main>
+      <MainSection>
         <Main title="Katakana" list={katakana} />
-      </Layout.Main>
+      </MainSection>
       <div />
     </>
   );

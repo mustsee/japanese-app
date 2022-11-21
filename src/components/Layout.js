@@ -26,7 +26,7 @@ function Root(props) {
   );
 }
 
-function Main(props) {
+function MainSection(props) {
   return (
     <Box
       component="main"
@@ -37,4 +37,4 @@ function Main(props) {
   );
 }
 
-export default { Root, Main };
+export { Root, MainSection };
