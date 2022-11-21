@@ -3,7 +3,7 @@ import { Header } from "components/Header";
 import React, { useState, createRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 
-const appName = "japanese-app";
+const appName = "/japanese-app";
 
 /* const voyelles = "アイウエオ";
 const kLine = "カキクケコ";
