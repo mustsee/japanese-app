@@ -9,6 +9,7 @@ import { Katakana } from "pages/Katakana";
 function App() {
   return (
     <Router>
+      <div>Here I am</div>
       <CssVarsProvider>
         <Layout.Root>
           <Routes>
