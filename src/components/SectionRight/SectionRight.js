@@ -236,7 +236,9 @@ const SectionRight = () => {
             return (
               <Typography
                 level={
-                  !(rowIndex === 0 || elementIndex === row.length - 1) && "h5"
+                  !(rowIndex === 0 || elementIndex === row.length - 1)
+                    ? "h5"
+                    : "body1"
                 }
                 sx={{
                   display: "flex",
@@ -259,8 +261,8 @@ const SectionRight = () => {
                   }),
                   ...((rowIndex === 0 || elementIndex === row.length - 1) && {
                     "&:hover": {
-                      backgroundColor: "#f1f1f1",
-                      cursor: "pointer",
+                      // backgroundColor: "#f1f1f1",
+                      // cursor: "pointer",
                     },
                   }),
                 }}

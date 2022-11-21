@@ -1,92 +1,29 @@
-import {
-  Box,
-  Button,
-  Card,
-  Divider,
-  Stack,
-  Switch,
-  Typography,
-} from "@mui/joy";
-import React, { useState, createRef, useEffect } from "react";
+import { Box, Button, Card, Divider, Stack, Typography } from "@mui/joy";
+import { Header } from "components/Header";
+import React, { useState, createRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
-
-const hiragana = [
-  {
-    romaji: "a",
-    char: "あ",
-    prefix: "hiragana",
-  },
-  {
-    romaji: "i",
-    char: "い",
-    prefix: "hiragana",
-  },
-  {
-    romaji: "u",
-    char: "う",
-    prefix: "hiragana",
-  },
-  {
-    romaji: "e",
-    char: "え",
-    prefix: "hiragana",
-  },
-  {
-    romaji: "o",
-    char: "お",
-    prefix: "hiragana",
-  },
-];
-
-const katakana = [
-  {
-    romaji: "a",
-    char: "ア",
-    prefix: "katakana",
-  },
-  {
-    romaji: "i",
-    char: "イ",
-    prefix: "katakana",
-  },
-  {
-    romaji: "u",
-    char: "ウ",
-    prefix: "katakana",
-  },
-  {
-    romaji: "e",
-    char: "エ",
-    prefix: "katakana",
-  },
-  {
-    romaji: "o",
-    char: "オ",
-    prefix: "katakana",
-  },
-];
 
 /* const voyelles = "アイウエオ";
 const kLine = "カキクケコ";
 const sLine = "サシスセソ"; */
 
-const Main = () => {
+const Main = (props) => {
   const canvasRef = createRef(null);
 
-  const [list, setList] = useState(hiragana);
-  const [syllable, setSyllable] = useState(hiragana[0]);
+  const [list, setList] = useState(props.list);
+  const [syllable, setSyllable] = useState(props.list[0]);
   const [index, setIndex] = useState(0);
 
   const [isCanvas, setIsCanvas] = useState(false);
 
-  const [isKatakana, setKatakana] = useState(false);
+  /* const [isKatakana, setKatakana] = useState(false); */
 
-  useEffect(() => {
+  /* useEffect(() => {
     setList(isKatakana ? katakana : hiragana);
     setSyllable(isKatakana ? katakana[0] : hiragana[0]);
     setIndex(0);
     setIsCanvas(false);
-  }, [isKatakana]);
+  }, [isKatakana]); */
 
   const handleClickOnNext = () => {
     if (!isCanvas) return setIsCanvas(true);
@@ -112,9 +49,7 @@ const Main = () => {
 
   return (
     <Stack sx={{ display: "flex", flexDirection: "column", gap: "2em" }}>
-      <Card variant="outlined" sx={{ textAlign: "center", userSelect: "none" }}>
-        <Typography>Welcome to Learn Japanese!</Typography>
-      </Card>
+      <Header title={props.title} />
       <Box
         sx={{
           display: "flex",
@@ -166,7 +101,7 @@ const Main = () => {
           Next
         </Button>
       </Box>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+      {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Switch
           color={isKatakana ? "primary" : "info"}
           startDecorator={
@@ -186,7 +121,7 @@ const Main = () => {
           checked={isKatakana}
           onChange={(event) => setKatakana(event.target.checked)}
         />
-      </Box>
+      </Box> */}
     </Stack>
   );
 };

@@ -1,35 +1,24 @@
 import "@fontsource/public-sans";
 import { CssVarsProvider } from "@mui/joy/styles";
-import { Stack } from "@mui/joy";
 import Layout from "./components/Layout";
-import { Main } from "./components/Main";
-import { SectionRight } from "./components/SectionRight";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "pages/Home";
+import { Hiragana } from "pages/Hiragana";
+import { Katakana } from "pages/Katakana";
 
 function App() {
   return (
-    <CssVarsProvider>
-      <Layout.Root>
-        <Stack
-          sx={{
-            // backgroundColor: "lavender",
-            p: 2,
-            gap: "1em",
-          }}
-        ></Stack>
-        <Layout.Main>
-          <Main />
-        </Layout.Main>
-        <Stack
-          sx={{
-            // backgroundColor: "lavender",
-            p: 2,
-            gap: "1em",
-          }}
-        >
-          <SectionRight />
-        </Stack>
-      </Layout.Root>
-    </CssVarsProvider>
+    <Router>
+      <CssVarsProvider>
+        <Layout.Root>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/hiragana" element={<Hiragana />} />
+            <Route path="/katakana" element={<Katakana />} />
+          </Routes>
+        </Layout.Root>
+      </CssVarsProvider>
+    </Router>
   );
 }
 

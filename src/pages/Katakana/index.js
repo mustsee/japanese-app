@@ -1,0 +1,1 @@
+export { Katakana } from "./Katakana";
