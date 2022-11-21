@@ -1,0 +1,1 @@
+export { SectionRight } from "./SectionRight";
