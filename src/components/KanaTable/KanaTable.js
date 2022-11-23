@@ -1,8 +1,7 @@
 import { Card, Typography } from "@mui/joy";
 
-const data = [
+/* const data = [
   ["n", "w-", "r-", "y-", "m-", "h-", "n-", "t-", "s-", "k-", "", ""],
-
   [
     {
       char: "ん",
@@ -213,57 +212,58 @@ const data = [
     },
     "o",
   ],
-];
+]; */
 
-const SectionRight = () => {
+const KanaTable = (props) => {
+  const handleClickOnChar = (char) => {
+    if (!char) return;
+    props.handleChooseChar(char);
+  };
+
   return (
     <>
-      <Card variant="outlined" sx={{ textAlign: "center", userSelect: "none" }}>
-        <Typography>hiragana</Typography>
-      </Card>
       <Card
         variant="outlined"
         sx={{
           display: "grid",
-          gridTemplateColumns:
-            "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
-          gridTemplateRows: "1fr 1fr 1fr 1fr 1fr 1fr",
+          gridTemplateColumns: "0.8fr 1fr 1fr 1fr 1fr 1fr",
+          gridTemplateRows: "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
           userSelect: "none",
         }}
       >
-        {data.map((row, rowIndex) => {
+        {props.table.map((row, rowIndex) => {
           return row.map((element, elementIndex) => {
             return (
               <Typography
-                level={
-                  !(rowIndex === 0 || elementIndex === row.length - 1)
-                    ? "h5"
-                    : "body1"
-                }
+                onClick={() => handleClickOnChar(element.char)}
+                level={!(rowIndex === 0 || elementIndex === 0) ? "h5" : "body1"}
                 sx={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  borderLeft: "1px solid gray",
+                  borderRight: "1px solid gray",
                   borderBottom: "1px solid gray",
                   boxSizing: "border-box",
                   ...(rowIndex === 0 && {
                     // borderTop: "1px solid gray",
+                    borderRight: "none",
+                    // backgroundColor: "#fafafa",
+                    color: "#333",
+                  }),
+                  ...(elementIndex === 0 && {
+                    borderBottom: "none",
                     borderLeft: "none",
                     // backgroundColor: "#fafafa",
                     color: "#333",
                   }),
-                  ...(elementIndex === row.length - 1 && {
-                    // borderRight: "1px solid gray",
-                    borderBottom: "none",
-                    // backgroundColor: "#fafafa",
-                    color: "#333",
-                  }),
-                  ...((rowIndex === 0 || elementIndex === row.length - 1) && {
+                  ...(!(rowIndex === 0 || elementIndex === 0) && {
                     "&:hover": {
-                      // backgroundColor: "#f1f1f1",
-                      // cursor: "pointer",
+                      backgroundColor: "#f1f1f1",
+                      cursor: "pointer",
                     },
+                  }),
+                  ...(props.currentChar === element.char && {
+                    backgroundColor: "#eee",
                   }),
                 }}
               >
@@ -277,4 +277,4 @@ const SectionRight = () => {
   );
 };
 
-export { SectionRight };
+export { KanaTable };

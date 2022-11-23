@@ -15,7 +15,7 @@ function Home() {
               <Button fullWidth>Hiragana</Button>
             </Link>
             <Link to="katakana" style={{ textDecoration: "none" }}>
-              <Button fullWidth>Katakana </Button>
+              <Button fullWidth>Katakana</Button>
             </Link>
           </Stack>
         </Stack>

@@ -1,0 +1,1 @@
+export { KanaTable } from "./KanaTable";

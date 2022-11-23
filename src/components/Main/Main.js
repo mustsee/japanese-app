@@ -1,5 +1,6 @@
 import { Box, Button, Card, Divider, Stack, Typography } from "@mui/joy";
 import { Header } from "components/Header";
+import { KanaTable } from "components/KanaTable";
 import React, { useState, createRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 
@@ -27,6 +28,14 @@ const Main = (props) => {
     setIndex(0);
     setIsCanvas(false);
   }, [isKatakana]); */
+
+  const handleChooseChar = (chosenChar) => {
+    const newIndex = list.findIndex((element) => element.char === chosenChar);
+    setIndex(newIndex);
+    const newSyllable = list.find((element) => element.char === chosenChar);
+    setSyllable(newSyllable);
+    setIsCanvas(false);
+  };
 
   const handleClickOnNext = () => {
     if (!isCanvas) return setIsCanvas(true);
@@ -115,7 +124,7 @@ const Main = (props) => {
           Next
         </Button>
       </Box>
-      {syllable.mnemonic && !isCanvas && (
+      {/* {syllable.mnemonic && !isCanvas && (
         <Card
           variant="outlined"
           sx={{ cursor: "pointer" }}
@@ -134,8 +143,12 @@ const Main = (props) => {
             </Typography>
           )}
         </Card>
-      )}
-
+      )} */}
+      <KanaTable
+        table={props.table}
+        currentChar={syllable.char}
+        handleChooseChar={handleChooseChar}
+      />
       {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Switch
           color={isKatakana ? "primary" : "info"}

@@ -284,12 +284,284 @@ const katakana = [
   },
 ];
 
+const katakanaTable = [
+  ["", "a", "i", "u", "e", "o"],
+  [
+    "",
+    {
+      romaji: "a",
+      char: "ア",
+      prefix: "katakana",
+    },
+    {
+      romaji: "i",
+      char: "イ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "u",
+      char: "ウ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "e",
+      char: "エ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "o",
+      char: "オ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "k-",
+    {
+      romaji: "ka",
+      char: "カ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ki",
+      char: "キ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ku",
+      char: "ク",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ke",
+      char: "ケ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ko",
+      char: "コ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "s-",
+    {
+      romaji: "sa",
+      char: "サ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "shi",
+      char: "シ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "su",
+      char: "ス",
+      prefix: "katakana",
+    },
+    {
+      romaji: "se",
+      char: "セ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "so",
+      char: "ソ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "t-",
+    {
+      romaji: "ta",
+      char: "タ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "chi",
+      char: "チ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "tsu",
+      char: "ツ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "te",
+      char: "テ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "to",
+      char: "ト",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "n-",
+    {
+      romaji: "na",
+      char: "ナ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ni",
+      char: "ニ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "nu",
+      char: "ヌ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ne",
+      char: "ネ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "no",
+      char: "ノ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "h-",
+    {
+      romaji: "ha",
+      char: "ハ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "hi",
+      char: "ヒ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "fu",
+      char: "フ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "he",
+      char: "ヘ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ho",
+      char: "ホ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "m-",
+    {
+      romaji: "ma",
+      char: "マ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "mi",
+      char: "ミ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "mu",
+      char: "ム",
+      prefix: "katakana",
+    },
+    {
+      romaji: "me",
+      char: "メ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "mo",
+      char: "モ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "y-",
+    {
+      romaji: "ya",
+      char: "ヤ",
+      prefix: "katakana",
+    },
+    "",
+    {
+      romaji: "yu",
+      char: "ユ",
+      prefix: "katakana",
+    },
+    "",
+    {
+      romaji: "yo",
+      char: "ヨ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "r-",
+    {
+      romaji: "ra",
+      char: "ラ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ri",
+      char: "リ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ru",
+      char: "ル",
+      prefix: "katakana",
+    },
+    {
+      romaji: "re",
+      char: "レ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ro",
+      char: "ロ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "w-",
+    {
+      romaji: "wa",
+      char: "ワ",
+      prefix: "katakana",
+    },
+    "",
+    "",
+    "",
+    {
+      romaji: "wo",
+      char: "ヲ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "",
+    {
+      romaji: "n",
+      char: "ン",
+      prefix: "katakana",
+    },
+  ],
+];
+
 function Katakana() {
   return (
     <>
       <div />
       <MainSection>
-        <Main title="Katakana" list={katakana} />
+        <Main title="Katakana" list={katakana} table={katakanaTable} />
       </MainSection>
       <div />
     </>
