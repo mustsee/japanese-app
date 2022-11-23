@@ -17,6 +17,7 @@ const Main = (props) => {
   const [index, setIndex] = useState(0);
 
   const [isCanvas, setIsCanvas] = useState(false);
+  const [showMnemonic, setShowMnemonic] = useState(false);
 
   /* const [isKatakana, setKatakana] = useState(false); */
 
@@ -114,6 +115,27 @@ const Main = (props) => {
           Next
         </Button>
       </Box>
+      {syllable.mnemonic && !isCanvas && (
+        <Card
+          variant="outlined"
+          sx={{ cursor: "pointer" }}
+          onClick={() => setShowMnemonic(!showMnemonic)}
+        >
+          {!showMnemonic ? (
+            <Typography
+              level="body2"
+              sx={{ userSelect: "none", textAlign: "center" }}
+            >
+              Click to show mnemonic
+            </Typography>
+          ) : (
+            <Typography level="body2" sx={{ userSelect: "none" }}>
+              {syllable.mnemonic}
+            </Typography>
+          )}
+        </Card>
+      )}
+
       {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Switch
           color={isKatakana ? "primary" : "info"}
