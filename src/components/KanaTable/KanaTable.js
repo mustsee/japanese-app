@@ -220,6 +220,12 @@ const KanaTable = (props) => {
     props.handleChooseChar(char);
   };
 
+  const rowsNumber = (list) => {
+    let rows;
+    list.forEach(() => (rows += " 1fr"));
+    return rows;
+  };
+
   return (
     <>
       <Card
@@ -227,7 +233,7 @@ const KanaTable = (props) => {
         sx={{
           display: "grid",
           gridTemplateColumns: "0.8fr 1fr 1fr 1fr 1fr 1fr",
-          gridTemplateRows: "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
+          gridTemplateRows: rowsNumber(props.table),
           userSelect: "none",
         }}
       >

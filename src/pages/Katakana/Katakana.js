@@ -1,7 +1,7 @@
 import { MainSection } from "components/Layout";
 import { Main } from "components/Main";
 
-const katakana = [
+let katakana = [
   {
     romaji: "a",
     char: "ア",
@@ -227,7 +227,6 @@ const katakana = [
     prefix: "katakana",
     mnemonic: "You won the 'hangman' game!",
   },
-
   {
     romaji: "yo",
     char: "ヨ",
@@ -283,6 +282,13 @@ const katakana = [
     mnemonic: "",
   },
 ];
+
+katakana = katakana.map((element) => {
+  return {
+    ...element,
+    svg: true,
+  };
+});
 
 const katakanaTable = [
   ["", "a", "i", "u", "e", "o"],

@@ -78,7 +78,10 @@ const Main = (props) => {
       </Box>
       <Card
         variant="outlined"
-        sx={{ height: "300px", boxSizing: "border-box" }}
+        sx={{
+          height: "300px",
+          boxSizing: "border-box",
+        }}
       >
         {isCanvas ? (
           <ReactSketchCanvas
@@ -88,12 +91,24 @@ const Main = (props) => {
             canvasColor="#fafafa"
             style={{ border: "none" }}
           />
-        ) : (
+        ) : syllable.svg ? (
           <img
             src={`${appName}/svg/${syllable.prefix}-${syllable.romaji}.svg`}
             alt={syllable.romaji}
             style={{ padding: "15%" }}
           />
+        ) : (
+          <Typography
+            sx={{
+              fontSize: "150px",
+              display: "flex",
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {syllable.char}
+          </Typography>
         )}
       </Card>
       <Box sx={{ display: "flex", gap: "1em" }}>

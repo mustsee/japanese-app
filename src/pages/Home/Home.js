@@ -17,6 +17,9 @@ function Home() {
             <Link to="katakana" style={{ textDecoration: "none" }}>
               <Button fullWidth>Katakana</Button>
             </Link>
+            <Link to="accents" style={{ textDecoration: "none" }}>
+              <Button fullWidth>Dakuten and Handakuten</Button>
+            </Link>
           </Stack>
         </Stack>
       </MainSection>
