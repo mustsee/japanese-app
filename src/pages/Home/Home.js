@@ -17,8 +17,17 @@ function Home() {
             <Link to="katakana" style={{ textDecoration: "none" }}>
               <Button fullWidth>Katakana</Button>
             </Link>
-            <Link to="accents" style={{ textDecoration: "none" }}>
-              <Button fullWidth>Dakuten and Handakuten</Button>
+            <Link
+              to="hiragana-dakuten-handakuten"
+              style={{ textDecoration: "none" }}
+            >
+              <Button fullWidth>Hiragana Dakuten/Handakuten</Button>
+            </Link>
+            <Link
+              to="katakana-dakuten-handakuten"
+              style={{ textDecoration: "none" }}
+            >
+              <Button fullWidth>Katakana Dakuten/Handakuten</Button>
             </Link>
             <Link to="exercices" style={{ textDecoration: "none" }}>
               <Button fullWidth>Exercises</Button>

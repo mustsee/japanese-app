@@ -19,7 +19,7 @@ import { useEffect, useState } from "react";
 const Exercises = () => {
   const [checked, setChecked] = useState([true, true, true, true]);
   const [chosenButtonIndex, setChosenButtonIndex] = useState(undefined);
-  const [value, setValue] = useState("kana");
+  const [exercise, setExercise] = useState("kana-level-1");
   const [itemsNumber, setItemsNumber] = useState(10);
   const [list, setList] = useState([]);
   const [shortList, setShortList] = useState([]);
@@ -95,11 +95,6 @@ const Exercises = () => {
       if (item.romaji !== element.romaji) return item;
     });
 
-  /* const handleSetItemsNumber = (event) => {
-    console.log(event.target.value, typeof event.target.value);
-    setItemsNumber(event.target.value);
-  }; */
-
   useEffect(() => {
     const list = shuffle(elements());
     const shortList = list.slice(0, itemsNumber);
@@ -143,6 +138,11 @@ const Exercises = () => {
                 fontSize: "50px",
               }}
             >
+              {/* {exercise === "kana-level-1"
+                ? shortList.length && shortList[index].char
+                : exercise === "romaji-level-1"
+                ? shortList.length && shortList[index].romaji
+                : null} */}
               {shortList.length && shortList[index].char}
             </Typography>
             <Divider orientation="vertical" sx={{ margin: "1em 2em 1em 0" }} />
@@ -169,6 +169,11 @@ const Exercises = () => {
                     onClick={() => checkAnswer(element, index)}
                     key={element.char}
                   >
+                    {/* {exercise === "kana-level-1"
+                      ? shortList.length && element.romaji
+                      : exercise === "romaji-level-1"
+                      ? shortList.length && element.char
+                      : null} */}
                     {element.romaji}
                   </Button>
                 );
@@ -186,18 +191,24 @@ const Exercises = () => {
             >
               Start
             </Button>
-            {/* <Select value={value} size="sm">
-              <Option value="kana">Kana</Option>
-              <Option value="romaji">Romaji</Option>
-            </Select> */}
             {/* <Select
-              onChange={handleSetItemsNumber}
+              onChange={(e, newValue) => setExercise(newValue)}
+              value={exercise}
+              size="sm"
+            >
+              <Option value="kana-level-1">Kana level 1</Option>
+              <Option value="kana-level-2">Kana level 2</Option>
+              <Option value="romaji-level-1">Romaji level 1</Option>
+            </Select> */}
+            <Select
+              onChange={(e, newValue) => setItemsNumber(newValue)}
               value={itemsNumber}
               size="sm"
             >
-              <Option value={20}>20</Option>
               <Option value={10}>10</Option>
-            </Select> */}
+              <Option value={20}>20</Option>
+              <Option value={30}>30</Option>
+            </Select>
             <Checkbox
               checked={checked[0]}
               onChange={(event) =>
