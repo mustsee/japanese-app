@@ -167,7 +167,7 @@ const Exercises = () => {
                     }
                     disabled={chosenButtonIndex !== undefined ? true : false}
                     onClick={() => checkAnswer(element, index)}
-                    key={index}
+                    key={element.char}
                   >
                     {element.romaji}
                   </Button>
@@ -179,8 +179,12 @@ const Exercises = () => {
             variant="outlined"
             sx={{ display: "flex", justifyDirection: "column", gap: "1em" }}
           >
-            <Button onClick={handleStartExercise} variant="outlined">
-              Restart
+            <Button
+              onClick={handleStartExercise}
+              variant="outlined"
+              disabled={!checked.filter((el) => el === true).length}
+            >
+              Start
             </Button>
             {/* <Select value={value} size="sm">
               <Option value="kana">Kana</Option>
