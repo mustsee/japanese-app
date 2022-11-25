@@ -20,6 +20,9 @@ function Home() {
             <Link to="accents" style={{ textDecoration: "none" }}>
               <Button fullWidth>Dakuten and Handakuten</Button>
             </Link>
+            <Link to="exercices" style={{ textDecoration: "none" }}>
+              <Button fullWidth>Exercises</Button>
+            </Link>
           </Stack>
         </Stack>
       </MainSection>
