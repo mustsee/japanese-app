@@ -28,27 +28,31 @@ const ExercisesBis = () => {
     setClearExerciseState(true);
   };
 
-  const generateExercise = (
-    elements,
-    exerciseLength,
-    exerciseType = "recognizeKana"
-  ) => {
+  const generateExercise = (exerciseType, exerciseLength, elements) => {
     if (exerciseType === "recognizeKana") {
-      createRecognizeKana(elements, exerciseLength);
+      createRecognize(elements, exerciseLength, {
+        question: "char",
+        answer: "romaji",
+      });
+    } else if (exerciseType === "recognizeRomaji") {
+      createRecognize(elements, exerciseLength, {
+        question: "romaji",
+        answer: "char",
+      });
     }
     return;
   };
 
-  const createRecognizeKana = (elements, exerciseLength) => {
+  const createRecognize = (elements, exerciseLength, key) => {
     const fullList = shuffle(elements);
     const exerciseList = fullList.slice(0, exerciseLength);
     const exercise = exerciseList.map((element, index) => {
       return {
-        question: element.char,
+        question: element[key.question],
         answers: findAnswers(exerciseList, fullList, index).map(
-          (element) => element.romaji
+          (element) => element[key.answer]
         ),
-        response: element.romaji,
+        response: element[key.answer],
         key: `${element.romaji}-${element.char}`,
       };
     });
@@ -212,9 +216,22 @@ const Exercise = (props) => {
 const Options = (props) => {
   const { generateExercise, clearState } = props;
 
+  const dataExerciseLengths = [
+    { label: "10", value: 10 },
+    { label: "20", value: 20 },
+    { label: "10", value: 10 },
+  ];
+  const dataExerciseTypes = [
+    { label: "Recognize Kana", value: "recognizeKana" },
+    { label: "Recognize Rōmaji", value: "recognizeRomaji" },
+  ];
+
   const [hiraganaChecked, setHiraganaChecked] = useState([true, true]);
   const [katakanaChecked, setKatakanaChecked] = useState([true, true]);
-  const [exerciseLength, setExerciseLength] = useState(10);
+  const [exerciseLength, setExerciseLength] = useState(
+    dataExerciseLengths[0].value
+  );
+  const [exerciseType, setExerciseType] = useState(dataExerciseTypes[0].value);
 
   const elements = () => {
     return hiraganaChecked
@@ -232,12 +249,12 @@ const Options = (props) => {
   };
 
   const handleGenerateExercise = () => {
-    generateExercise(elements(), exerciseLength);
+    generateExercise(exerciseType, exerciseLength, elements());
     clearState();
   };
 
   useEffect(() => {
-    generateExercise(elements(), exerciseLength);
+    generateExercise(exerciseType, exerciseLength, elements());
   }, []);
 
   const hiraganaOptions = (
@@ -310,9 +327,22 @@ const Options = (props) => {
         value={exerciseLength}
         size="sm"
       >
-        <Option value={10}>10</Option>
-        <Option value={20}>20</Option>
-        <Option value={30}>30</Option>
+        {dataExerciseLengths.map(({ label, value }) => (
+          <Option value={value} key={label}>
+            {label}
+          </Option>
+        ))}
+      </Select>
+      <Select
+        onChange={(e, newValue) => setExerciseType(newValue)}
+        value={exerciseType}
+        size="sm"
+      >
+        {dataExerciseTypes.map(({ label, value }) => (
+          <Option value={value} key={label}>
+            {label}
+          </Option>
+        ))}
       </Select>
       <Box>
         <Checkbox
@@ -333,6 +363,7 @@ const Options = (props) => {
           size="sm"
           variant="soft"
           label="Katakana"
+          sx={{ display: "flex" }}
           checked={katakanaChecked[0] && katakanaChecked[1]}
           indeterminate={katakanaChecked[0] !== katakanaChecked[1]}
           onChange={(event) =>
