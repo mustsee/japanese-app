@@ -49,6 +49,7 @@ const ExercisesBis = () => {
           (element) => element.romaji
         ),
         response: element.romaji,
+        key: `${element.romaji}-${element.char}`,
       };
     });
     setExercise(exercise);
@@ -197,7 +198,7 @@ const Exercise = (props) => {
                 }
                 disabled={chosenButtonIndex !== null}
                 onClick={() => checkAnswer(element, index)}
-                key={element}
+                key={exercise[index].key}
               >
                 {element}
               </Button>
@@ -298,8 +299,8 @@ const Options = (props) => {
         onClick={handleGenerateExercise}
         variant="outlined"
         disabled={
-          !hiraganaChecked.filter((el) => el === true).length &&
-          !katakanaChecked.filter((el) => el === true).length
+          !hiraganaChecked.concat(katakanaChecked).filter((el) => el === true)
+            .length
         }
       >
         Start
@@ -318,6 +319,7 @@ const Options = (props) => {
           size="sm"
           variant="soft"
           label="Hiragana"
+          sx={{ display: "flex" }}
           checked={hiraganaChecked[0] && hiraganaChecked[1]}
           indeterminate={hiraganaChecked[0] !== hiraganaChecked[1]}
           onChange={(event) =>
