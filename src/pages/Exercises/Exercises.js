@@ -138,11 +138,6 @@ const Exercises = () => {
                 fontSize: "50px",
               }}
             >
-              {/* {exercise === "kana-level-1"
-                ? shortList.length && shortList[index].char
-                : exercise === "romaji-level-1"
-                ? shortList.length && shortList[index].romaji
-                : null} */}
               {shortList.length && shortList[index].char}
             </Typography>
             <Divider orientation="vertical" sx={{ margin: "1em 2em 1em 0" }} />
@@ -169,11 +164,6 @@ const Exercises = () => {
                     onClick={() => checkAnswer(element, index)}
                     key={element.char}
                   >
-                    {/* {exercise === "kana-level-1"
-                      ? shortList.length && element.romaji
-                      : exercise === "romaji-level-1"
-                      ? shortList.length && element.char
-                      : null} */}
                     {element.romaji}
                   </Button>
                 );
@@ -191,15 +181,6 @@ const Exercises = () => {
             >
               Start
             </Button>
-            {/* <Select
-              onChange={(e, newValue) => setExercise(newValue)}
-              value={exercise}
-              size="sm"
-            >
-              <Option value="kana-level-1">Kana level 1</Option>
-              <Option value="kana-level-2">Kana level 2</Option>
-              <Option value="romaji-level-1">Romaji level 1</Option>
-            </Select> */}
             <Select
               onChange={(e, newValue) => setItemsNumber(newValue)}
               value={itemsNumber}

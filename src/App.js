@@ -1,6 +1,7 @@
 import "@fontsource/public-sans";
 import { CssVarsProvider } from "@mui/joy/styles";
 import { Exercises } from "pages/Exercises";
+import { ExercisesBis } from "pages/ExercisesBis";
 import { Hiragana } from "pages/Hiragana";
 import { HiraganaDakutenHandakuten } from "pages/HiraganaDakutenHandakuten";
 import { Home } from "pages/Home";
@@ -27,6 +28,7 @@ function App() {
               element={<KatakanaDakutenHandakuten />}
             />
             <Route path="/exercices" element={<Exercises />} />
+            <Route path="/exercices-bis" element={<ExercisesBis />} />
           </Routes>
         </Root>
       </CssVarsProvider>
