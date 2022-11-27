@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/japanese-app/static/css/main.6cafde03.css",
-    "main.js": "/japanese-app/static/js/main.257d646b.js",
+    "main.js": "/japanese-app/static/js/main.9a712f34.js",
     "static/js/787.ab4a7ca7.chunk.js": "/japanese-app/static/js/787.ab4a7ca7.chunk.js",
     "static/media/public-sans-all-400-normal.woff": "/japanese-app/static/media/public-sans-all-400-normal.74e7e7d8ab558dd108a1.woff",
     "static/media/public-sans-latin-400-normal.woff2": "/japanese-app/static/media/public-sans-latin-400-normal.4758638f2eeeaf0dd6c4.woff2",
@@ -9,11 +9,11 @@
     "static/media/public-sans-vietnamese-400-normal.woff2": "/japanese-app/static/media/public-sans-vietnamese-400-normal.4490eed5a77c4164de3d.woff2",
     "index.html": "/japanese-app/index.html",
     "main.6cafde03.css.map": "/japanese-app/static/css/main.6cafde03.css.map",
-    "main.257d646b.js.map": "/japanese-app/static/js/main.257d646b.js.map",
+    "main.9a712f34.js.map": "/japanese-app/static/js/main.9a712f34.js.map",
     "787.ab4a7ca7.chunk.js.map": "/japanese-app/static/js/787.ab4a7ca7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6cafde03.css",
-    "static/js/main.257d646b.js"
+    "static/js/main.9a712f34.js"
   ]
 }
