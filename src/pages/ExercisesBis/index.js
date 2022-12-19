@@ -1,1 +1,0 @@
-export { ExercisesBis } from "./ExercisesBis";

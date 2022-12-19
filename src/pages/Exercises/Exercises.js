@@ -1,32 +1,62 @@
-import {
-  Box,
-  Button,
-  Card,
-  Checkbox,
-  Chip,
-  Divider,
-  Option,
-  Select,
-  Stack,
-  Typography,
-} from "@mui/joy";
+import Box from "@mui/joy/Box";
+import Button from "@mui/joy/Button";
+import Card from "@mui/joy/Card";
+import Chip from "@mui/joy/Chip";
+import Checkbox from "@mui/joy/Checkbox";
+import Divider from "@mui/joy/Divider";
+import Select from "@mui/joy/Select";
+import Option from "@mui/joy/Option";
+import Stack from "@mui/joy/Stack";
+import Typography from "@mui/joy/Typography";
 import { Header } from "components/Header";
 import { MainSection } from "components/Layout";
+import { useEffect, useState } from "react";
 import { hiragana, hiraganaAccents } from "data/hiragana";
 import { katakana, katakanaAccents } from "data/katakana";
-import { useEffect, useState } from "react";
 
 const Exercises = () => {
-  const [checked, setChecked] = useState([true, true, true, true]);
-  const [chosenButtonIndex, setChosenButtonIndex] = useState(undefined);
-  const [exercise, setExercise] = useState("kana-level-1");
-  const [itemsNumber, setItemsNumber] = useState(10);
-  const [list, setList] = useState([]);
-  const [shortList, setShortList] = useState([]);
-  const [index, setIndex] = useState(null);
-  const [answers, setAnswers] = useState([]);
-  const [success, setSuccess] = useState(null);
   const [score, setScore] = useState([0, 0]);
+  const [exercise, setExercise] = useState([]);
+  const [clearExerciseState, setClearExerciseState] = useState(false);
+
+  const handleScore = (result) => {
+    setScore([score[0] + result[0], score[1] + result[1]]);
+  };
+
+  const clearState = () => {
+    setScore([0, 0]);
+    setClearExerciseState(true);
+  };
+
+  const generateExercise = (exerciseType, exerciseLength, elements) => {
+    if (exerciseType === "recognizeKana") {
+      createRecognize(elements, exerciseLength, {
+        question: "char",
+        answer: "romaji",
+      });
+    } else if (exerciseType === "recognizeRomaji") {
+      createRecognize(elements, exerciseLength, {
+        question: "romaji",
+        answer: "char",
+      });
+    }
+    return;
+  };
+
+  const createRecognize = (elements, exerciseLength, key) => {
+    const fullList = shuffle(elements);
+    const exerciseList = fullList.slice(0, exerciseLength);
+    const exercise = exerciseList.map((element, index) => {
+      return {
+        question: element[key.question],
+        answers: findAnswers(exerciseList, fullList, index).map(
+          (element) => element[key.answer]
+        ),
+        response: element[key.answer],
+      };
+    });
+    setExercise(exercise);
+  };
 
   const shuffle = (list) => {
     return list
@@ -35,55 +65,9 @@ const Exercises = () => {
       .map(({ value }) => value);
   };
 
-  const elements = () => {
-    return checked
-      .map((element, index) => {
-        if (element) {
-          if (index === 0) return hiragana;
-          else if (index === 1) return katakana;
-          else if (index === 2) return hiraganaAccents;
-          else if (index === 3) return katakanaAccents;
-        }
-      })
-      .filter((element) => element)
-      .flat(1);
-  };
-
-  const checkAnswer = (selected, selectionIndex) => {
-    setChosenButtonIndex(selectionIndex);
-    const current = shortList[index];
-    if (selected.romaji === current.romaji) {
-      setSuccess(true);
-      setScore([score[0], score[1] + 1]);
-    } else {
-      setSuccess(false);
-      setScore([score[0] + 1, score[1]]);
-    }
-    setTimeout(() => {
-      const nextIndex = index + 1;
-      if (!shortList[nextIndex]) return;
-      setIndex(nextIndex);
-      setChosenButtonIndex(undefined);
-      setSuccess(false);
-      setAnswers(findAnswers(shortList, list, nextIndex));
-    }, 1000);
-  };
-
-  const handleStartExercise = () => {
-    setChosenButtonIndex(undefined);
-    setSuccess(false);
-    setScore([0, 0]);
-    const list = shuffle(elements());
-    const shortList = list.slice(0, itemsNumber);
-    setShortList(shortList);
-    setList(list);
-    setIndex(0);
-    setAnswers(findAnswers(shortList, list, 0));
-  };
-
-  const findAnswers = (shortList, list, index) => {
-    const current = shortList[index];
-    let listWithoutCurrent = removeDuplicate(list, current);
+  const findAnswers = (exerciseList, fullList, index) => {
+    const current = exerciseList[index];
+    let listWithoutCurrent = removeDuplicate(fullList, current);
     const answer1 = shuffle(listWithoutCurrent).slice(0, 1);
     let listWithoutAnswer1 = removeDuplicate(listWithoutCurrent, answer1[0]);
     const answer2 = shuffle(listWithoutAnswer1).slice(0, 1);
@@ -95,158 +79,23 @@ const Exercises = () => {
       if (item.romaji !== element.romaji) return item;
     });
 
-  useEffect(() => {
-    const list = shuffle(elements());
-    const shortList = list.slice(0, itemsNumber);
-    setShortList(shortList);
-    setList(list);
-    setIndex(0);
-    setAnswers(findAnswers(shortList, list, 0));
-  }, []);
-
   return (
     <>
       <div />
       <MainSection>
         <Stack sx={{ display: "flex", flexDirection: "column", gap: "2em" }}>
           <Header title="Exercises" />
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-around",
-              width: "70%",
-              margin: "0 auto",
-            }}
-          >
-            <Chip variant="soft" color="danger">
-              {score[0]}
-            </Chip>
-            <Chip variant="soft" color="success">
-              {score[1]}
-            </Chip>
-            <Chip variant="soft" color="info">
-              {score[0] + score[1]} / {shortList.length}
-            </Chip>
-          </Box>
-          <Box variant="outlined" sx={{ display: "flex", userSelect: "none" }}>
-            <Typography
-              sx={{
-                display: "flex",
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center",
-                fontSize: "50px",
-              }}
-            >
-              {shortList.length && shortList[index].char}
-            </Typography>
-            <Divider orientation="vertical" sx={{ margin: "1em 2em 1em 0" }} />
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                flex: 1,
-                gap: "1em",
-              }}
-            >
-              {answers.map((element, index) => {
-                return (
-                  <Button
-                    variant={chosenButtonIndex === index ? "soft" : "outlined"}
-                    color={
-                      chosenButtonIndex === index && success
-                        ? "success"
-                        : chosenButtonIndex === index && !success
-                        ? "danger"
-                        : "info"
-                    }
-                    disabled={chosenButtonIndex !== undefined ? true : false}
-                    onClick={() => checkAnswer(element, index)}
-                    key={element.char}
-                  >
-                    {element.romaji}
-                  </Button>
-                );
-              })}
-            </Box>
-          </Box>
-          <Card
-            variant="outlined"
-            sx={{ display: "flex", justifyDirection: "column", gap: "1em" }}
-          >
-            <Button
-              onClick={handleStartExercise}
-              variant="outlined"
-              disabled={!checked.filter((el) => el === true).length}
-            >
-              Start
-            </Button>
-            <Select
-              onChange={(e, newValue) => setItemsNumber(newValue)}
-              value={itemsNumber}
-              size="sm"
-            >
-              <Option value={10}>10</Option>
-              <Option value={20}>20</Option>
-              <Option value={30}>30</Option>
-            </Select>
-            <Checkbox
-              checked={checked[0]}
-              onChange={(event) =>
-                setChecked([
-                  event.target.checked,
-                  checked[1],
-                  checked[2],
-                  checked[3],
-                ])
-              }
-              size="sm"
-              variant="soft"
-              label="Hiragana"
-            />
-            <Checkbox
-              checked={checked[1]}
-              onChange={(event) =>
-                setChecked([
-                  checked[0],
-                  event.target.checked,
-                  checked[2],
-                  checked[3],
-                ])
-              }
-              size="sm"
-              variant="soft"
-              label="Katakana"
-            />
-            <Checkbox
-              checked={checked[2]}
-              onChange={(event) =>
-                setChecked([
-                  checked[0],
-                  checked[1],
-                  event.target.checked,
-                  checked[3],
-                ])
-              }
-              size="sm"
-              variant="soft"
-              label="Hiragana Dakuten Handakuten"
-            />
-            <Checkbox
-              checked={checked[3]}
-              onChange={(event) =>
-                setChecked([
-                  checked[0],
-                  checked[1],
-                  checked[2],
-                  event.target.checked,
-                ])
-              }
-              size="sm"
-              variant="soft"
-              label="Katakana Dakuten Handakuten"
-            />
-          </Card>
+          <Score fail={score[0]} success={score[1]} total={exercise.length} />
+          <Exercise
+            exercise={exercise}
+            handleScore={handleScore}
+            clearExerciseState={clearExerciseState}
+            updateExerciseState={() => setClearExerciseState(false)}
+          />
+          <Options
+            generateExercise={generateExercise}
+            clearState={clearState}
+          />
         </Stack>
       </MainSection>
       <div />
@@ -255,3 +104,273 @@ const Exercises = () => {
 };
 
 export { Exercises };
+
+const Score = (props) => {
+  const { fail, success, total } = props;
+
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-around",
+        width: "70%",
+        margin: "0 auto",
+      }}
+    >
+      <Chip variant="soft" color="danger">
+        {fail}
+      </Chip>
+      <Chip variant="soft" color="success">
+        {success}
+      </Chip>
+      <Chip variant="soft" color="info">
+        {fail + success} / {total}
+      </Chip>
+    </Box>
+  );
+};
+
+const Exercise = (props) => {
+  const { exercise, handleScore, clearExerciseState, updateExerciseState } =
+    props;
+
+  const [index, setIndex] = useState(0);
+  const [chosenButtonIndex, setChosenButtonIndex] = useState(null);
+  const [success, setSuccess] = useState(null);
+
+  const checkAnswer = (selected, selectionIndex) => {
+    setChosenButtonIndex(selectionIndex);
+    if (selected === exercise[index].response) {
+      setSuccess(true);
+      handleScore([0, 1]);
+    } else {
+      setSuccess(false);
+      handleScore([1, 0]);
+    }
+    setTimeout(() => {
+      const nextIndex = index + 1;
+      if (!exercise[nextIndex]) return;
+      setIndex(nextIndex);
+      setChosenButtonIndex(null);
+      setSuccess(false);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    if (clearExerciseState) {
+      setIndex(0);
+      setChosenButtonIndex(null);
+      setSuccess(null);
+      updateExerciseState();
+    }
+  }, [clearExerciseState]);
+
+  return (
+    <Box variant="outlined" sx={{ display: "flex", userSelect: "none" }}>
+      <Typography
+        sx={{
+          display: "flex",
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "50px",
+        }}
+      >
+        {exercise.length && exercise[index].question}
+      </Typography>
+      <Divider orientation="vertical" sx={{ margin: "1em 2em 1em 0" }} />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          gap: "1em",
+        }}
+      >
+        {exercise.length &&
+          exercise[index].answers.map((element, index) => {
+            return (
+              <Button
+                variant={chosenButtonIndex === index ? "soft" : "outlined"}
+                color={
+                  chosenButtonIndex === index && success
+                    ? "success"
+                    : chosenButtonIndex === index && !success
+                    ? "danger"
+                    : "info"
+                }
+                disabled={chosenButtonIndex !== null}
+                onClick={() => checkAnswer(element, index)}
+                key={element + "-" + index}
+              >
+                {element}
+              </Button>
+            );
+          })}
+      </Box>
+    </Box>
+  );
+};
+
+const Options = (props) => {
+  const { generateExercise, clearState } = props;
+
+  const dataExerciseLengths = [
+    { label: "10", value: 10 },
+    { label: "20", value: 20 },
+    { label: "30", value: 30 },
+  ];
+  const dataExerciseTypes = [
+    { label: "Recognize Kana", value: "recognizeKana" },
+    { label: "Recognize Rōmaji", value: "recognizeRomaji" },
+  ];
+
+  const [hiraganaChecked, setHiraganaChecked] = useState([true, true]);
+  const [katakanaChecked, setKatakanaChecked] = useState([true, true]);
+  const [exerciseLength, setExerciseLength] = useState(
+    dataExerciseLengths[0].value
+  );
+  const [exerciseType, setExerciseType] = useState(dataExerciseTypes[0].value);
+
+  const elements = () => {
+    return hiraganaChecked
+      .concat(katakanaChecked)
+      .map((el, index) => {
+        if (el) {
+          if (index === 0) return hiragana;
+          else if (index === 1) return hiraganaAccents;
+          else if (index === 2) return katakana;
+          else if (index === 3) return katakanaAccents;
+        }
+      })
+      .filter((el) => el)
+      .flat(1);
+  };
+
+  const handleGenerateExercise = () => {
+    generateExercise(exerciseType, exerciseLength, elements());
+    clearState();
+  };
+
+  useEffect(() => {
+    generateExercise(exerciseType, exerciseLength, elements());
+  }, []);
+
+  const hiraganaOptions = (
+    <Box
+      sx={{ display: "flex", flexDirection: "column", ml: 3, mt: 1, gap: 1 }}
+    >
+      <Checkbox
+        size="sm"
+        variant="soft"
+        label="46 basics"
+        checked={hiraganaChecked[0]}
+        onChange={(event) =>
+          setHiraganaChecked([event.target.checked, hiraganaChecked[1]])
+        }
+      />
+      <Checkbox
+        size="sm"
+        variant="soft"
+        label="Dakuten and Handakuten"
+        checked={hiraganaChecked[1]}
+        onChange={(event) =>
+          setHiraganaChecked([hiraganaChecked[0], event.target.checked])
+        }
+      />
+    </Box>
+  );
+
+  const katakanaOptions = (
+    <Box
+      sx={{ display: "flex", flexDirection: "column", ml: 3, mt: 1, gap: 1 }}
+    >
+      <Checkbox
+        size="sm"
+        variant="soft"
+        label="46 basics"
+        checked={katakanaChecked[0]}
+        onChange={(event) =>
+          setKatakanaChecked([event.target.checked, katakanaChecked[1]])
+        }
+      />
+      <Checkbox
+        size="sm"
+        variant="soft"
+        label="Dakuten and Handakuten"
+        checked={katakanaChecked[1]}
+        onChange={(event) =>
+          setKatakanaChecked([katakanaChecked[0], event.target.checked])
+        }
+      />
+    </Box>
+  );
+
+  return (
+    <Card
+      variant="outlined"
+      sx={{ display: "flex", justifyDirection: "column", gap: "1em" }}
+    >
+      <Button
+        onClick={handleGenerateExercise}
+        variant="outlined"
+        disabled={
+          !hiraganaChecked.concat(katakanaChecked).filter((el) => el === true)
+            .length
+        }
+      >
+        Start
+      </Button>
+      <Select
+        onChange={(e, newValue) => setExerciseLength(newValue)}
+        value={exerciseLength}
+        size="sm"
+      >
+        {dataExerciseLengths.map(({ label, value }) => (
+          <Option value={value} key={label}>
+            {label}
+          </Option>
+        ))}
+      </Select>
+      <Select
+        onChange={(e, newValue) => setExerciseType(newValue)}
+        value={exerciseType}
+        size="sm"
+      >
+        {dataExerciseTypes.map(({ label, value }) => (
+          <Option value={value} key={label}>
+            {label}
+          </Option>
+        ))}
+      </Select>
+      <Box>
+        <Checkbox
+          size="sm"
+          variant="soft"
+          label="Hiragana"
+          sx={{ display: "flex" }}
+          checked={hiraganaChecked[0] && hiraganaChecked[1]}
+          indeterminate={hiraganaChecked[0] !== hiraganaChecked[1]}
+          onChange={(event) =>
+            setHiraganaChecked([event.target.checked, event.target.checked])
+          }
+        />
+        {hiraganaOptions}
+      </Box>
+      <Box>
+        <Checkbox
+          size="sm"
+          variant="soft"
+          label="Katakana"
+          sx={{ display: "flex" }}
+          checked={katakanaChecked[0] && katakanaChecked[1]}
+          indeterminate={katakanaChecked[0] !== katakanaChecked[1]}
+          onChange={(event) =>
+            setKatakanaChecked([event.target.checked, event.target.checked])
+          }
+        />
+        {katakanaOptions}
+      </Box>
+    </Card>
+  );
+};

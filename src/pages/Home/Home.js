@@ -32,9 +32,6 @@ function Home() {
             <Link to="exercices" style={{ textDecoration: "none" }}>
               <Button fullWidth>Exercises</Button>
             </Link>
-            <Link to="exercices-bis" style={{ textDecoration: "none" }}>
-              <Button fullWidth>Exercises Second Version</Button>
-            </Link>
           </Stack>
         </Stack>
       </MainSection>
