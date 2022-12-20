@@ -125,6 +125,7 @@ const Exercise = (props) => {
             ml: "auto",
             mr: "auto",
           }}
+          key={exercise.length && exercise[index].response}
         >
           Submit
         </Button>
