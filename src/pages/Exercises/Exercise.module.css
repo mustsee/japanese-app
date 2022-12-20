@@ -1,0 +1,15 @@
+.input {
+  display: flex;
+  width: 44%;
+  margin: 0 auto;
+  padding: 1em 1em 0.5em;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+  font-size: 1.2em;
+  color: #212427;
+}
+
+.input:focus {
+  outline: none;
+}

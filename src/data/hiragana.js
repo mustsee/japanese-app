@@ -821,7 +821,47 @@ const hiraganaAccentsTable = [
   ],
 ];
 
-const hiraganaPause = [];
+const hiraganaPause = [
+  {
+    char: "とって",
+    romaji: "totte",
+  },
+  {
+    char: "きっと",
+    romaji: "kitto",
+  },
+  {
+    char: "さっき",
+    romaji: "sakki",
+  },
+  {
+    char: "ふっくら",
+    romaji: "fukkura",
+  },
+  {
+    char: "ぐっすり",
+    romaji: "gussuri",
+  },
+  {
+    char: "ぎっしり",
+    romaji: "gisshiri",
+  },
+  {
+    char: "やっぱり",
+    romaji: "yappari",
+  },
+  {
+    char: "どっさり",
+    romaji: "dossari",
+  },
+  {
+    char: "うっかり",
+    romaji: "ukkari",
+  },
+];
+
+					
+
 
 export {
   hiragana,

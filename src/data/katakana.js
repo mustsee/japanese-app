@@ -831,7 +831,44 @@ const katakanaAccentsTable = [
   ],
 ];
 
-const katakanaPause = [];
+const katakanaPause = [
+  {
+    char: "ネット",
+    romaji: "netto",
+  },
+  {
+    char: "マップ",
+    romaji: "mappu",
+  },
+  {
+    char: "グッズ",
+    romaji: "guzzu",
+  },
+  {
+    char: "マッチ",
+    romaji: ["matchi", "macchi"],
+  },
+  {
+    char: "デッサン",
+    romaji: "dessan",
+  },
+  {
+    char: "ビッグバン",
+    romaji: "bigguban",
+  },
+  {
+    char: "カップル",
+    romaji: "kappuru",
+  },
+  {
+    char: "ホッチキス",
+    romaji: ["hotchikisu", "hocchikisu"],
+  },
+  {
+    char: "ブックレット",
+    romaji: "bukkuretto",
+  },
+];
 
 export {
   katakana,

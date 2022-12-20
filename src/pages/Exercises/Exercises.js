@@ -1,15 +1,18 @@
 import Stack from "@mui/joy/Stack";
 import { Header } from "components/Header";
 import { MainSection } from "components/Layout";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Score } from "./Score";
 import { Exercise } from "./Exercise";
 import { Options } from "./Options";
-
+import { defaultExerciseType } from "data/options";
 
 const Exercises = () => {
   const [score, setScore] = useState([0, 0]);
   const [exercise, setExercise] = useState([]);
+  const [exerciseAction, setExerciseAction] = useState(
+    defaultExerciseType.value.action
+  );
   const [clearExerciseState, setClearExerciseState] = useState(false);
 
   const handleScore = (result) => {
@@ -22,20 +25,40 @@ const Exercises = () => {
   };
 
   const generateExercise = (exerciseType, exerciseLength, elements) => {
-    const { action } = exerciseType;
+    const { action, question, answer } = exerciseType;
     if (action === "recognize") {
-      const { question, answer } = exerciseType;
-      createRecognize(elements, exerciseLength, {
-        question,
-        answer,
-      });
+      createRecognize(
+        elements,
+        exerciseLength,
+        {
+          question,
+          answer,
+        },
+        action
+      );
     } else if (action === "write") {
-      console.log("write action !!");
+      createWrite(elements, exerciseLength, { question, answer }, action);
     }
     return;
   };
 
-  const createRecognize = (elements, exerciseLength, key) => {
+  const createWrite = (elements, exerciseLength, key, action) => {
+    const fullList = shuffle(elements);
+    const exerciseList = fullList.slice(0, exerciseLength);
+    const exercise = exerciseList.map((element) => {
+      return {
+        question: element[key.question],
+        response:
+          typeof element[key.answer] === "string"
+            ? [element[key.answer]]
+            : element[key.answer],
+      };
+    });
+    setExercise(exercise);
+    setExerciseAction(action);
+  };
+
+  const createRecognize = (elements, exerciseLength, key, action) => {
     const fullList = shuffle(elements);
     const exerciseList = fullList.slice(0, exerciseLength);
     const exercise = exerciseList.map((element, index) => {
@@ -48,6 +71,7 @@ const Exercises = () => {
       };
     });
     setExercise(exercise);
+    setExerciseAction(action);
   };
 
   const shuffle = (list) => {
@@ -80,6 +104,7 @@ const Exercises = () => {
           <Score fail={score[0]} success={score[1]} total={exercise.length} />
           <Exercise
             exercise={exercise}
+            exerciseAction={exerciseAction}
             handleScore={handleScore}
             clearExerciseState={clearExerciseState}
             updateExerciseState={() => setClearExerciseState(false)}

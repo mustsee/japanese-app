@@ -28,10 +28,18 @@ const dataExerciseTypes = [
       answer: "char",
     },
   },
-  { label: "Write Rōmaji", value: { action: "write", target: "romaji" } },
+  {
+    label: "Write Rōmaji",
+    value: {
+      action: "write",
+      target: "romaji",
+      question: "char",
+      answer: "romaji",
+    },
+  },
 ];
 
-const defaultExerciseType = dataExerciseTypes[0];
+const defaultExerciseType = dataExerciseTypes[2];
 
 const dataExerciseOptions = {
   recognize: [
