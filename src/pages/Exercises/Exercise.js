@@ -44,7 +44,11 @@ const Exercise = (props) => {
 
   const checkAnswerWrite = () => {
     setIsSubmitted(true);
-    if (exercise[index].response.includes(inputValue.toLowerCase())) {
+    if (
+      exercise[index].response.includes(
+        inputValue.toLowerCase().replace(/\s+/g, "")
+      )
+    ) {
       setSuccess(true);
       handleScore([0, 1]);
     } else {
