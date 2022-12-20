@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { RecognizeDisplay } from "./RecognizeDisplay";
-import Box from "@mui/joy/Box";
-import Typography from "@mui/joy/Typography";
-import styles from "./Exercise.module.css";
-import { Button } from "@mui/joy";
+import { WriteDisplay } from "./WriteDisplay";
 
 const Exercise = (props) => {
   const {
@@ -21,7 +18,6 @@ const Exercise = (props) => {
   const [chosenButtonIndex, setChosenButtonIndex] = useState(null);
 
   // Specific to write
-  const [inputValue, setInputValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const checkAnswerRecognize = (selected, selectionIndex) => {
@@ -42,7 +38,7 @@ const Exercise = (props) => {
     }, 1000);
   };
 
-  const checkAnswerWrite = () => {
+  const checkAnswerWrite = (inputValue) => {
     setIsSubmitted(true);
     if (
       exercise[index].response.includes(
@@ -61,7 +57,6 @@ const Exercise = (props) => {
       setIndex(nextIndex);
       setIsSubmitted(false);
       setSuccess(false);
-      setInputValue("");
     }, 1000);
   };
 
@@ -74,7 +69,6 @@ const Exercise = (props) => {
       setChosenButtonIndex(null);
       // Specific to write
       setIsSubmitted(false);
-      setInputValue("");
     }
   }, [clearExerciseState]);
 
@@ -83,57 +77,20 @@ const Exercise = (props) => {
       <RecognizeDisplay
         exercise={exercise}
         index={index}
-        chosenButtonIndex={chosenButtonIndex}
         success={success}
+        chosenButtonIndex={chosenButtonIndex}
         checkAnswerRecognize={checkAnswerRecognize}
       />
     );
   } else if (exerciseAction === "write") {
     return (
-      <Box variant="outlined" sx={{ userSelect: "none" }}>
-        <Typography
-          sx={{
-            display: "flex",
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            fontSize: "32px",
-          }}
-        >
-          {exercise.length && exercise[index].question}
-        </Typography>
-        <input
-          value={inputValue}
-          onChange={(event) => setInputValue(event.target.value)}
-          className={styles.input}
-          type="text"
-          spellCheck="false"
-          autoComplete="off"
-          autoFocus
-        />
-        <Button
-          onClick={checkAnswerWrite}
-          variant={isSubmitted ? "soft" : "outlined"}
-          color={
-            isSubmitted && success
-              ? "success"
-              : isSubmitted && !success
-              ? "danger"
-              : "info"
-          }
-          disabled={!inputValue || isSubmitted}
-          sx={{
-            mt: "2em",
-            display: "flex",
-            width: "50%",
-            ml: "auto",
-            mr: "auto",
-          }}
-          key={exercise.length && exercise[index].response}
-        >
-          Submit
-        </Button>
-      </Box>
+      <WriteDisplay
+        exercise={exercise}
+        index={index}
+        success={success}
+        isSubmitted={isSubmitted}
+        checkAnswerWrite={checkAnswerWrite}
+      />
     );
   }
 };
