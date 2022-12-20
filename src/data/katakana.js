@@ -831,4 +831,12 @@ const katakanaAccentsTable = [
   ],
 ];
 
-export { katakana, katakanaTable, katakanaAccents, katakanaAccentsTable };
+const katakanaPause = [];
+
+export {
+  katakana,
+  katakanaTable,
+  katakanaAccents,
+  katakanaAccentsTable,
+  katakanaPause,
+};

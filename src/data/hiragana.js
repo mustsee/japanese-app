@@ -821,4 +821,12 @@ const hiraganaAccentsTable = [
   ],
 ];
 
-export { hiragana, hiraganaTable, hiraganaAccents, hiraganaAccentsTable };
+const hiraganaPause = [];
+
+export {
+  hiragana,
+  hiraganaTable,
+  hiraganaAccents,
+  hiraganaAccentsTable,
+  hiraganaPause,
+};

@@ -11,8 +11,8 @@ import Typography from "@mui/joy/Typography";
 import { Header } from "components/Header";
 import { MainSection } from "components/Layout";
 import { useEffect, useState } from "react";
-import { hiragana, hiraganaAccents } from "data/hiragana";
-import { katakana, katakanaAccents } from "data/katakana";
+import { hiragana, hiraganaAccents, hiraganaPause } from "data/hiragana";
+import { katakana, katakanaAccents, katakanaPause } from "data/katakana";
 
 const Exercises = () => {
   const [score, setScore] = useState([0, 0]);
@@ -102,8 +102,6 @@ const Exercises = () => {
     </>
   );
 };
-
-export { Exercises };
 
 const Score = (props) => {
   const { fail, success, total } = props;
@@ -223,88 +221,125 @@ const Options = (props) => {
   const dataExerciseTypes = [
     { label: "Recognize Kana", value: "recognizeKana" },
     { label: "Recognize Rōmaji", value: "recognizeRomaji" },
+    //{ label: "Write Rōmaji", value: "writeRomaji" },
   ];
 
-  const [hiraganaChecked, setHiraganaChecked] = useState([true, true]);
-  const [katakanaChecked, setKatakanaChecked] = useState([true, true]);
+  // It better should be an object ?
+  const dataExerciseOptions = [
+    [
+      {
+        label: "Hiragana",
+        key: "recognizeOptions-Hiragana",
+        children: [
+          {
+            label: "46 basics",
+            key: "recognizeOptions-Hiragana-46_basics",
+            data: hiragana,
+            isChecked: true,
+          },
+          {
+            label: "Dakuten and Handakuten",
+            key: "recognizeOptions-Hiragana-Dakuten_and_Handakuten",
+            data: hiraganaAccents,
+            isChecked: true,
+          },
+        ],
+      },
+      {
+        label: "Katakana",
+        key: "recognizeOptions-Katakana",
+        children: [
+          {
+            label: "46 basics",
+            key: "recognizeOptions-Katakana-46_basics",
+            data: katakana,
+            isChecked: true,
+          },
+          {
+            label: "Dakuten and Handakuten",
+            key: "recognizeOptions-Katakana-Dakuten_and_Handakuten",
+            data: katakanaAccents,
+            isChecked: true,
+          },
+        ],
+      },
+    ],
+    [
+      {
+        label: "Hiragana",
+        key: "writeOptions-Hiragana",
+        children: [
+          {
+            label: "Pause",
+            key: "writeOptions-Hiragana-Pause",
+            data: hiraganaPause,
+            isChecked: true,
+          },
+        ],
+      },
+      {
+        label: "Katakana",
+        key: "writeOptions-Katakana",
+        children: [
+          {
+            label: "Pause",
+            key: "writeOptions-Katakana-Pause",
+            data: katakanaPause,
+            isChecked: true,
+          },
+        ],
+      },
+    ],
+  ];
+
   const [exerciseLength, setExerciseLength] = useState(
     dataExerciseLengths[0].value
   );
   const [exerciseType, setExerciseType] = useState(dataExerciseTypes[0].value);
+  const [exerciseOptions, setExerciseOptions] = useState(
+    dataExerciseOptions[0]
+  );
 
-  const elements = () => {
-    return hiraganaChecked
-      .concat(katakanaChecked)
-      .map((el, index) => {
-        if (el) {
-          if (index === 0) return hiragana;
-          else if (index === 1) return hiraganaAccents;
-          else if (index === 2) return katakana;
-          else if (index === 3) return katakanaAccents;
-        }
-      })
-      .filter((el) => el)
-      .flat(1);
+  const defaultElements = exerciseOptions
+    .map((element) => {
+      return element.children
+        .filter((childrenElement) => {
+          if (childrenElement.isChecked) {
+            return childrenElement;
+          }
+        })
+        .map((element) => element.data);
+    })
+    .flat(2);
+
+  const [elements, setElements] = useState(defaultElements);
+
+  const handleSetExerciseType = (value) => {
+    setExerciseType(value);
+    // Enhance : See this comment // It better should be an object ?
+    setExerciseOptions(
+      value.includes("recognize")
+        ? dataExerciseOptions[0]
+        : dataExerciseOptions[1]
+    );
+  };
+
+  const handleUpdateOptions = (newValue) => {
+    setExerciseOptions(newValue);
+  };
+
+  const handleUpdateElements = (value) => {
+    setElements(value);
   };
 
   const handleGenerateExercise = () => {
-    generateExercise(exerciseType, exerciseLength, elements());
+    generateExercise(exerciseType, exerciseLength, elements);
     clearState();
   };
 
   useEffect(() => {
-    generateExercise(exerciseType, exerciseLength, elements());
+    generateExercise(exerciseType, exerciseLength, elements);
   }, []);
-
-  const hiraganaOptions = (
-    <Box
-      sx={{ display: "flex", flexDirection: "column", ml: 3, mt: 1, gap: 1 }}
-    >
-      <Checkbox
-        size="sm"
-        variant="soft"
-        label="46 basics"
-        checked={hiraganaChecked[0]}
-        onChange={(event) =>
-          setHiraganaChecked([event.target.checked, hiraganaChecked[1]])
-        }
-      />
-      <Checkbox
-        size="sm"
-        variant="soft"
-        label="Dakuten and Handakuten"
-        checked={hiraganaChecked[1]}
-        onChange={(event) =>
-          setHiraganaChecked([hiraganaChecked[0], event.target.checked])
-        }
-      />
-    </Box>
-  );
-
-  const katakanaOptions = (
-    <Box
-      sx={{ display: "flex", flexDirection: "column", ml: 3, mt: 1, gap: 1 }}
-    >
-      <Checkbox
-        size="sm"
-        variant="soft"
-        label="46 basics"
-        checked={katakanaChecked[0]}
-        onChange={(event) =>
-          setKatakanaChecked([event.target.checked, katakanaChecked[1]])
-        }
-      />
-      <Checkbox
-        size="sm"
-        variant="soft"
-        label="Dakuten and Handakuten"
-        checked={katakanaChecked[1]}
-        onChange={(event) =>
-          setKatakanaChecked([katakanaChecked[0], event.target.checked])
-        }
-      />
-    </Box>
-  );
 
   return (
     <Card
@@ -314,10 +349,7 @@ const Options = (props) => {
       <Button
         onClick={handleGenerateExercise}
         variant="outlined"
-        disabled={
-          !hiraganaChecked.concat(katakanaChecked).filter((el) => el === true)
-            .length
-        }
+        disabled={!elements.length}
       >
         Start
       </Button>
@@ -333,7 +365,7 @@ const Options = (props) => {
         ))}
       </Select>
       <Select
-        onChange={(e, newValue) => setExerciseType(newValue)}
+        onChange={(e, newValue) => handleSetExerciseType(newValue)}
         value={exerciseType}
         size="sm"
       >
@@ -343,34 +375,124 @@ const Options = (props) => {
           </Option>
         ))}
       </Select>
-      <Box>
-        <Checkbox
-          size="sm"
-          variant="soft"
-          label="Hiragana"
-          sx={{ display: "flex" }}
-          checked={hiraganaChecked[0] && hiraganaChecked[1]}
-          indeterminate={hiraganaChecked[0] !== hiraganaChecked[1]}
-          onChange={(event) =>
-            setHiraganaChecked([event.target.checked, event.target.checked])
-          }
-        />
-        {hiraganaOptions}
-      </Box>
-      <Box>
-        <Checkbox
-          size="sm"
-          variant="soft"
-          label="Katakana"
-          sx={{ display: "flex" }}
-          checked={katakanaChecked[0] && katakanaChecked[1]}
-          indeterminate={katakanaChecked[0] !== katakanaChecked[1]}
-          onChange={(event) =>
-            setKatakanaChecked([event.target.checked, event.target.checked])
-          }
-        />
-        {katakanaOptions}
-      </Box>
+      <ExerciseOptions
+        options={exerciseOptions}
+        handleUpdateElements={handleUpdateElements}
+        handleUpdateOptions={handleUpdateOptions}
+      />
     </Card>
   );
 };
+
+const ExerciseOptions = (props) => {
+  const { options, handleUpdateElements, handleUpdateOptions } = props;
+
+  const getElements = () => {
+    return options
+      .map((option, optionIndex) => {
+        return option.children
+          .filter((childrenOption, childrenOptionIndex) => {
+            if (options[optionIndex].children[childrenOptionIndex].isChecked)
+              return true;
+          })
+          .map((element) => element.data);
+      })
+      .flat(2);
+  };
+
+  useEffect(() => {
+    handleUpdateElements(getElements());
+  }, [options]);
+
+  const handleSetChecked = (index, newValue) => {
+    const newArrayOptions = options.map((option, optionIndex) => {
+      if (optionIndex === index) {
+        const newChildrenValues = option.children.map((childrenElement) => {
+          return { ...childrenElement, isChecked: newValue };
+        });
+        return { ...option, children: newChildrenValues };
+      }
+      return option;
+    });
+    handleUpdateOptions(newArrayOptions);
+  };
+
+  const handleSetChildrenChecked = (index, childrenIndex, newValue) => {
+    const newArrayOptions = options.map((option, optionIndex) => {
+      if (optionIndex === index) {
+        const newChildrenValues = option.children.map(
+          (childrenElement, childrenElementIndex) => {
+            if (childrenElementIndex === childrenIndex) {
+              return { ...childrenElement, isChecked: newValue };
+            }
+            return childrenElement;
+          }
+        );
+        return { ...option, children: newChildrenValues };
+      }
+      return option;
+    });
+    handleUpdateOptions(newArrayOptions);
+  };
+
+  return (
+    <>
+      {options.map((option, index) => {
+        return (
+          <Box key={option.key}>
+            <Checkbox
+              size="sm"
+              variant="soft"
+              label={option.label}
+              sx={{ display: "flex" }}
+              checked={
+                option.children.filter((element) => element.isChecked)
+                  .length === option.children.length
+              }
+              indeterminate={
+                !!(
+                  option.children.filter((element) => element.isChecked)
+                    .length &&
+                  option.children.filter((element) => !element.isChecked).length
+                )
+              }
+              onChange={(event) =>
+                handleSetChecked(index, event.target.checked)
+              }
+            />
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                ml: 3,
+                mt: 1,
+                gap: 1,
+              }}
+            >
+              {option.children.map((child, childrenIndex) => {
+                return (
+                  <Checkbox
+                    key={child.key}
+                    size="sm"
+                    variant="soft"
+                    label={child.label}
+                    checked={child.isChecked}
+                    onChange={(event) =>
+                      handleSetChildrenChecked(
+                        index,
+                        childrenIndex,
+                        event.target.checked
+                      )
+                    }
+                  />
+                );
+              })}
+            </Box>
+          </Box>
+        );
+      })}
+    </>
+  );
+};
+
+export { Exercises };
