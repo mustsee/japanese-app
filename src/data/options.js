@@ -7,15 +7,34 @@ const dataExerciseLengths = [
   { label: "30", value: 30 },
 ];
 
+const defaultExerciseLength = dataExerciseLengths[0];
+
 const dataExerciseTypes = [
-  { label: "Recognize Kana", value: "recognizeKana" },
-  { label: "Recognize Rōmaji", value: "recognizeRomaji" },
-  { label: "Write Rōmaji", value: "writeRomaji" },
+  {
+    label: "Recognize Kana",
+    value: {
+      action: "recognize",
+      target: "kana",
+      question: "char",
+      answer: "romaji",
+    },
+  },
+  {
+    label: "Recognize Rōmaji",
+    value: {
+      action: "recognize",
+      target: "romaji",
+      question: "romaji",
+      answer: "char",
+    },
+  },
+  { label: "Write Rōmaji", value: { action: "write", target: "romaji" } },
 ];
 
-// It better should be an object with two keys : recognize and write ?
-const dataExerciseOptions = [
-  [
+const defaultExerciseType = dataExerciseTypes[0];
+
+const dataExerciseOptions = {
+  recognize: [
     {
       label: "Hiragana",
       key: "recognizeOptions-Hiragana",
@@ -53,7 +72,7 @@ const dataExerciseOptions = [
       ],
     },
   ],
-  [
+  write: [
     {
       label: "Hiragana",
       key: "writeOptions-Hiragana",
@@ -79,6 +98,25 @@ const dataExerciseOptions = [
       ],
     },
   ],
-];
+};
 
-export { dataExerciseLengths, dataExerciseTypes, dataExerciseOptions };
+const defaultElements = dataExerciseOptions[defaultExerciseType.value.action]
+  .map((element) => {
+    return element.children
+      .filter((childrenElement) => {
+        if (childrenElement.isChecked) {
+          return childrenElement;
+        }
+      })
+      .map((element) => element.data);
+  })
+  .flat(2);
+
+export {
+  dataExerciseLengths,
+  dataExerciseTypes,
+  dataExerciseOptions,
+  defaultExerciseLength,
+  defaultExerciseType,
+  defaultElements,
+};

@@ -15,6 +15,9 @@ import {
   dataExerciseLengths,
   dataExerciseTypes,
   dataExerciseOptions,
+  defaultExerciseLength,
+  defaultExerciseType,
+  defaultElements,
 } from "data/options";
 
 const Exercises = () => {
@@ -32,16 +35,15 @@ const Exercises = () => {
   };
 
   const generateExercise = (exerciseType, exerciseLength, elements) => {
-    if (exerciseType === "recognizeKana") {
+    const { action } = exerciseType;
+    if (action === "recognize") {
+      const { question, answer } = exerciseType;
       createRecognize(elements, exerciseLength, {
-        question: "char",
-        answer: "romaji",
+        question,
+        answer,
       });
-    } else if (exerciseType === "recognizeRomaji") {
-      createRecognize(elements, exerciseLength, {
-        question: "romaji",
-        answer: "char",
-      });
+    } else if (action === "write") {
+      console.log("write action !!");
     }
     return;
   };
@@ -217,35 +219,20 @@ const Options = (props) => {
   const { generateExercise, clearState } = props;
 
   const [exerciseLength, setExerciseLength] = useState(
-    dataExerciseLengths[0].value
-  );
-  const [exerciseType, setExerciseType] = useState(dataExerciseTypes[0].value);
-  const [exerciseOptions, setExerciseOptions] = useState(
-    dataExerciseOptions[0]
+    defaultExerciseLength.value
   );
 
-  const defaultElements = exerciseOptions
-    .map((element) => {
-      return element.children
-        .filter((childrenElement) => {
-          if (childrenElement.isChecked) {
-            return childrenElement;
-          }
-        })
-        .map((element) => element.data);
-    })
-    .flat(2);
+  const [exerciseType, setExerciseType] = useState(defaultExerciseType.value);
+
+  const [exerciseOptions, setExerciseOptions] = useState(
+    dataExerciseOptions[defaultExerciseType.value.action]
+  );
 
   const [elements, setElements] = useState(defaultElements);
 
   const handleSetExerciseType = (value) => {
     setExerciseType(value);
-    // Enhance : See this comment // It better should be an object ?
-    setExerciseOptions(
-      value.includes("recognize")
-        ? dataExerciseOptions[0]
-        : dataExerciseOptions[1]
-    );
+    setExerciseOptions(dataExerciseOptions[value.action]);
   };
 
   const handleUpdateOptions = (value) => {
