@@ -868,6 +868,42 @@ const katakanaPause = [
     char: "ブックレット",
     romaji: "bukkuretto",
   },
+  {
+    char: "ロッド",
+    romaji: "roddo",
+  },
+  {
+    char: "スリッパ",
+    romaji: "surippa",
+  },
+  {
+    char: "キックオフ",
+    romaji: "kikkuofu",
+  },
+  {
+    char: "クロワッサン",
+    romaji: "kurowassan",
+  },
+  {
+    char: "ネックレス",
+    romaji: "nekkuresu",
+  },
+  {
+    char: "ヘッドホン",
+    romaji: "heddohon",
+  },
+  {
+    char: "ペットボトル",
+    romaji: "pettobotoru",
+  },
+  {
+    char: "ハットトリック",
+    romaji: "hattotorikku",
+  },
+  {
+    char: "グッドラック",
+    romaji: "guddorakku",
+  },
 ];
 
 export {

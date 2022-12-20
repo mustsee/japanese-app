@@ -858,10 +858,43 @@ const hiraganaPause = [
     char: "うっかり",
     romaji: "ukkari",
   },
+  {
+    char: "やっと",
+    romaji: "yatto",
+  },
+  {
+    char: "だっこ",
+    romaji: "dakko",
+  },
+  {
+    char: "だったら",
+    romaji: "dattara",
+  },
+  {
+    char: "すっぴん",
+    romaji: "suppin",
+  },
+  {
+    char: "きっかり",
+    romaji: "kikkari",
+  },
+  {
+    char: "こっそり",
+    romaji: "kossori",
+  },
+  {
+    char: "がっしり",
+    romaji: "gasshiri",
+  },
+  {
+    char: "ほっぺた",
+    romaji: "hoppeta",
+  },
+  {
+    char: "おっつかっつ",
+    romaji: "ottsukattsu",
+  },
 ];
-
-					
-
 
 export {
   hiragana,
