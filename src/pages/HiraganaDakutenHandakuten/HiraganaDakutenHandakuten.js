@@ -8,7 +8,8 @@ const HiraganaDakutenHandakuten = () => {
       <div />
       <MainSection>
         <Main
-          title="Hiragana Dakuten/Handakuten"
+          name="Hiragana Dakuten/Handakuten"
+          href="/hiragana-dakuten-handakuten"
           list={hiraganaAccents}
           table={hiraganaAccentsTable}
         />

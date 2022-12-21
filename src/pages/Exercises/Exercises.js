@@ -100,7 +100,7 @@ const Exercises = () => {
       <div />
       <MainSection>
         <Stack sx={{ display: "flex", flexDirection: "column", gap: "2em" }}>
-          <Header title="Exercises" />
+          <Header list={[{ name: "Exercises", href: "/exercices" }]} />
           <Score fail={score[0]} success={score[1]} total={exercise.length} />
           <Exercise
             exercise={exercise}

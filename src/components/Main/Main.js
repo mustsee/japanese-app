@@ -11,6 +11,8 @@ const kLine = "カキクケコ";
 const sLine = "サシスセソ"; */
 
 const Main = (props) => {
+  const { name, href } = props;
+
   const canvasRef = createRef(null);
 
   const [list, setList] = useState(props.list);
@@ -61,7 +63,7 @@ const Main = (props) => {
 
   return (
     <Stack sx={{ display: "flex", flexDirection: "column", gap: "2em" }}>
-      <Header title={props.title} />
+      <Header list={[{ name, href }]} />
       <Box
         sx={{
           display: "flex",
