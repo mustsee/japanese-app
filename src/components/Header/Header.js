@@ -15,15 +15,11 @@ function Header(props) {
         </Typography>
       ) : (
         <Breadcrumbs size="sm" separator={<KeyboardArrowRight />}>
-          <IconButton
-            size="sm"
-            variant="outlined"
-            color="neutral"
-            component="a"
-            href="/"
-          >
-            <Home />
-          </IconButton>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <IconButton size="sm" variant="outlined" color="neutral">
+              <Home />
+            </IconButton>
+          </Link>
           {list.map((item, index) => (
             <Link to={item.href} key={index} style={{ textDecoration: "none" }}>
               <Typography fontSize="inherit">{item.name}</Typography>
