@@ -1,31 +1,27 @@
-import { Breadcrumbs, Card, Typography } from "@mui/joy";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
-import { Link } from "react-router-dom";
-import IconButton from "@mui/joy/IconButton";
+import { KeyboardArrowRight } from "@mui/icons-material";
 import Home from "@mui/icons-material/Home";
+import { Breadcrumbs, Card, Typography } from "@mui/joy";
+import IconButton from "@mui/joy/IconButton";
+import { Link } from "react-router-dom";
 
 function Header(props) {
-  const { list } = props;
+  const { title } = props;
 
   return (
     <HeaderWrapper>
-      {!list.length ? (
+      {!title ? (
         <Typography sx={{ py: 1.5, textAlign: "center" }}>
           Welcome to Learn Japanese !
         </Typography>
       ) : (
-        <Breadcrumbs size="sm" separator={<KeyboardArrowRight />}>
-          <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <Breadcrumbs size="sm" separator={<KeyboardArrowRight />}>
             <IconButton size="sm" variant="outlined" color="neutral">
               <Home />
             </IconButton>
-          </Link>
-          {list.map((item, index) => (
-            <Link to={item.href} key={index} style={{ textDecoration: "none" }}>
-              <Typography fontSize="inherit">{item.name}</Typography>
-            </Link>
-          ))}
-        </Breadcrumbs>
+            <Typography fontSize="inherit">{title}</Typography>
+          </Breadcrumbs>
+        </Link>
       )}
     </HeaderWrapper>
   );

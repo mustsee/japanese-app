@@ -9,7 +9,7 @@ function Home() {
       <Stack />
       <MainSection>
         <Stack sx={{ display: "flex", flexDirection: "column", gap: "2em" }}>
-          <Header list={[]} />
+          <Header />
           <Typography
             sx={{ textAlign: "center" }}
             level="h3"

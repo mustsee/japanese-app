@@ -7,12 +7,7 @@ function Katakana() {
     <>
       <div />
       <MainSection>
-        <Main
-          name="Katakana"
-          href="/katakana"
-          list={katakana}
-          table={katakanaTable}
-        />
+        <Main title="Katakana" list={katakana} table={katakanaTable} />
       </MainSection>
       <div />
     </>

@@ -33,7 +33,6 @@ const WriteDisplay = (props) => {
         type="text"
         spellCheck="false"
         autoComplete="off"
-        autoFocus
       />
       <Button
         onClick={() => checkAnswerWrite(inputValue)}

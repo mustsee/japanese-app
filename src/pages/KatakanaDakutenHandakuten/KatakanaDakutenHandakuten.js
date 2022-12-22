@@ -8,8 +8,7 @@ const KatakanaDakutenHandakuten = () => {
       <div />
       <MainSection>
         <Main
-          name="Katakana Dakuten/Handakuten"
-          href="/katakana-dakuten-handakuten"
+          title="Katakana Dakuten/Handakuten"
           list={katakanaAccents}
           table={katakanaAccentsTable}
         />

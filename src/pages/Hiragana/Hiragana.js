@@ -7,12 +7,7 @@ function Hiragana() {
     <>
       <div />
       <MainSection>
-        <Main
-          name="Hiragana"
-          href="/hiragana"
-          list={hiragana}
-          table={hiraganaTable}
-        />
+        <Main title="Hiragana" list={hiragana} table={hiraganaTable} />
       </MainSection>
       <div />
     </>
