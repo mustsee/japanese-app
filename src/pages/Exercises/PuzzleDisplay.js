@@ -46,7 +46,9 @@ const PuzzleDisplay = (props) => {
                   sx={{ borderRadius: "0.5em" }}
                   key={`${element.display}-${index}`}
                   onClick={() => {
-                    setSelected(selected.filter((x) => x !== element));
+                    if (!isSubmitted) {
+                      setSelected(selected.filter((x) => x !== element));
+                    }
                   }}
                 >
                   {element.display}
@@ -77,7 +79,7 @@ const PuzzleDisplay = (props) => {
                 size="lg"
                 sx={{ borderRadius: "0.5em" }}
                 onClick={() => {
-                  setSelected(selected.concat(element));
+                  if (!isSubmitted) setSelected(selected.concat(element));
                 }}
                 key={element.display + "-" + index}
               >
