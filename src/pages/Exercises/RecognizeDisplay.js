@@ -8,7 +8,7 @@ const RecognizeDisplay = (props) => {
     props;
 
   return (
-    <Box variant="outlined" sx={{ display: "flex", userSelect: "none" }}>
+    <Box sx={{ display: "flex", userSelect: "none" }}>
       <Typography
         sx={{
           display: "flex",

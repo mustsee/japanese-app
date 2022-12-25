@@ -1,4 +1,4 @@
-import { Button } from "@mui/joy";
+import Button from "@mui/joy/Button";
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
 import { useEffect, useState } from "react";
@@ -14,7 +14,7 @@ const WriteDisplay = (props) => {
   }, [index]);
 
   return (
-    <Box variant="outlined" sx={{ userSelect: "none" }}>
+    <Box sx={{ userSelect: "none" }}>
       <Typography
         sx={{
           display: "flex",

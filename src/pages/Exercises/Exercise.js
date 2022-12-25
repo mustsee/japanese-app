@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { RecognizeDisplay } from "./RecognizeDisplay";
 import { WriteDisplay } from "./WriteDisplay";
+import { PuzzleDisplay } from "./PuzzleDisplay";
 
 const Exercise = (props) => {
   const {
     exercise,
-    exerciseAction,
+    exerciseDisplay,
     handleScore,
     clearExerciseState,
     updateExerciseState,
@@ -19,6 +20,10 @@ const Exercise = (props) => {
 
   // Specific to write
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const checkAnswerPuzzle = () => {
+    return;
+  };
 
   const checkAnswerRecognize = (selected, selectionIndex) => {
     setChosenButtonIndex(selectionIndex);
@@ -72,7 +77,7 @@ const Exercise = (props) => {
     }
   }, [clearExerciseState]);
 
-  if (exerciseAction === "recognize") {
+  if (exerciseDisplay === "recognize") {
     return (
       <RecognizeDisplay
         exercise={exercise}
@@ -82,7 +87,7 @@ const Exercise = (props) => {
         checkAnswerRecognize={checkAnswerRecognize}
       />
     );
-  } else if (exerciseAction === "write") {
+  } else if (exerciseDisplay === "write") {
     return (
       <WriteDisplay
         exercise={exercise}
@@ -90,6 +95,16 @@ const Exercise = (props) => {
         success={success}
         isSubmitted={isSubmitted}
         checkAnswerWrite={checkAnswerWrite}
+      />
+    );
+  } else if (exerciseDisplay === "puzzle") {
+    return (
+      <PuzzleDisplay
+        exercise={exercise}
+        index={index}
+        success={success}
+        isSubmitted={isSubmitted}
+        checkAnswerPuzzle={checkAnswerPuzzle}
       />
     );
   }

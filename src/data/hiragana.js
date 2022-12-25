@@ -825,74 +825,92 @@ const hiraganaPause = [
   {
     char: "とって",
     romaji: "totte",
+    kana: "hiragana",
   },
   {
     char: "きっと",
     romaji: "kitto",
+    kana: "hiragana",
   },
   {
     char: "さっき",
     romaji: "sakki",
+    kana: "hiragana",
   },
   {
     char: "ふっくら",
     romaji: "fukkura",
+    kana: "hiragana",
   },
   {
     char: "ぐっすり",
     romaji: "gussuri",
+    kana: "hiragana",
   },
   {
     char: "ぎっしり",
     romaji: "gisshiri",
+    kana: "hiragana",
   },
   {
     char: "やっぱり",
     romaji: "yappari",
+    kana: "hiragana",
   },
   {
     char: "どっさり",
     romaji: "dossari",
+    kana: "hiragana",
   },
   {
     char: "うっかり",
     romaji: "ukkari",
+    kana: "hiragana",
   },
   {
     char: "やっと",
     romaji: "yatto",
+    kana: "hiragana",
   },
   {
     char: "だっこ",
     romaji: "dakko",
+    kana: "hiragana",
   },
   {
     char: "だったら",
     romaji: "dattara",
+    kana: "hiragana",
   },
   {
     char: "すっぴん",
     romaji: "suppin",
+    kana: "hiragana",
   },
   {
     char: "きっかり",
     romaji: "kikkari",
+    kana: "hiragana",
   },
   {
     char: "こっそり",
     romaji: "kossori",
+    kana: "hiragana",
   },
   {
     char: "がっしり",
     romaji: "gasshiri",
+    kana: "hiragana",
   },
   {
     char: "ほっぺた",
     romaji: "hoppeta",
+    kana: "hiragana",
   },
   {
     char: "おっつかっつ",
     romaji: "ottsukattsu",
+    kana: "hiragana",
   },
 ];
 

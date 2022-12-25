@@ -15,7 +15,10 @@ function Header(props) {
         </Typography>
       ) : (
         <Link to="/" style={{ textDecoration: "none" }}>
-          <Breadcrumbs size="sm" separator={<KeyboardArrowRight />}>
+          <Breadcrumbs
+            size="sm"
+            separator={<KeyboardArrowRight color="neutral" />}
+          >
             <IconButton size="sm" variant="outlined" color="neutral">
               <Home />
             </IconButton>

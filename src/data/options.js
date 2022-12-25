@@ -14,7 +14,7 @@ const dataExerciseTypes = [
     label: "Recognize Kana",
     value: {
       action: "recognize",
-      target: "kana",
+      display: "recognize",
       question: "char",
       answer: "romaji",
     },
@@ -23,7 +23,16 @@ const dataExerciseTypes = [
     label: "Recognize Rōmaji",
     value: {
       action: "recognize",
-      target: "romaji",
+      display: "recognize",
+      question: "romaji",
+      answer: "char",
+    },
+  },
+  {
+    label: "Write Kana",
+    value: {
+      action: "write",
+      display: "puzzle",
       question: "romaji",
       answer: "char",
     },
@@ -32,7 +41,7 @@ const dataExerciseTypes = [
     label: "Write Rōmaji",
     value: {
       action: "write",
-      target: "romaji",
+      display: "write",
       question: "char",
       answer: "romaji",
     },

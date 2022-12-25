@@ -835,74 +835,94 @@ const katakanaPause = [
   {
     char: "ネット",
     romaji: "netto",
+    kana: "katakana",
   },
   {
     char: "マップ",
     romaji: "mappu",
+    kana: "katakana",
   },
   {
     char: "グッズ",
     romaji: "guzzu",
+    kana: "katakana",
   },
   {
     char: "マッチ",
-    romaji: ["matchi", "macchi"],
+    romaji: ["macchi", "matchi"],
+    multiple: true,
+    kana: "katakana",
   },
   {
     char: "デッサン",
     romaji: "dessan",
+    kana: "katakana",
   },
   {
     char: "ビッグバン",
     romaji: "bigguban",
+    kana: "katakana",
   },
   {
     char: "カップル",
     romaji: "kappuru",
+    kana: "katakana",
   },
   {
     char: "ホッチキス",
-    romaji: ["hotchikisu", "hocchikisu"],
+    romaji: ["hocchikisu", "hotchikisu"],
+    multiple: true,
+    kana: "katakana",
   },
   {
     char: "ブックレット",
     romaji: "bukkuretto",
+    kana: "katakana",
   },
   {
     char: "ロッド",
     romaji: "roddo",
+    kana: "katakana",
   },
   {
     char: "スリッパ",
     romaji: "surippa",
+    kana: "katakana",
   },
   {
     char: "キックオフ",
     romaji: "kikkuofu",
+    kana: "katakana",
   },
   {
     char: "クロワッサン",
     romaji: "kurowassan",
+    kana: "katakana",
   },
   {
     char: "ネックレス",
     romaji: "nekkuresu",
+    kana: "katakana",
   },
   {
     char: "ヘッドホン",
     romaji: "heddohon",
+    kana: "katakana",
   },
   {
     char: "ペットボトル",
     romaji: "pettobotoru",
+    kana: "katakana",
   },
   {
     char: "ハットトリック",
     romaji: "hattotorikku",
+    kana: "katakana",
   },
   {
     char: "グッドラック",
     romaji: "guddorakku",
+    kana: "katakana",
   },
 ];
 

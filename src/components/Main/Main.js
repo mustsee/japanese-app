@@ -18,16 +18,6 @@ const Main = (props) => {
   const [index, setIndex] = useState(0);
 
   const [isCanvas, setIsCanvas] = useState(false);
-  const [showMnemonic, setShowMnemonic] = useState(false);
-
-  /* const [isKatakana, setKatakana] = useState(false); */
-
-  /* useEffect(() => {
-    setList(isKatakana ? katakana : hiragana);
-    setSyllable(isKatakana ? katakana[0] : hiragana[0]);
-    setIndex(0);
-    setIsCanvas(false);
-  }, [isKatakana]); */
 
   const handleChooseChar = (chosenChar) => {
     const newIndex = list.findIndex((element) => element.char === chosenChar);
@@ -139,52 +129,11 @@ const Main = (props) => {
           Next
         </Button>
       </Box>
-      {/* {syllable.mnemonic && !isCanvas && (
-        <Card
-          variant="outlined"
-          sx={{ cursor: "pointer" }}
-          onClick={() => setShowMnemonic(!showMnemonic)}
-        >
-          {!showMnemonic ? (
-            <Typography
-              level="body2"
-              sx={{ userSelect: "none", textAlign: "center" }}
-            >
-              Click to show mnemonic
-            </Typography>
-          ) : (
-            <Typography level="body2" sx={{ userSelect: "none" }}>
-              {syllable.mnemonic}
-            </Typography>
-          )}
-        </Card>
-      )} */}
       <KanaTable
         table={props.table}
         currentChar={syllable.char}
         handleChooseChar={handleChooseChar}
       />
-      {/* <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Switch
-          color={isKatakana ? "primary" : "info"}
-          startDecorator={
-            <Typography
-              sx={{ color: isKatakana ? "text.tertiary" : "info.400" }}
-            >
-              hiragana
-            </Typography>
-          }
-          endDecorator={
-            <Typography
-              sx={{ color: isKatakana ? "primary.400" : "text.tertiary" }}
-            >
-              katakana
-            </Typography>
-          }
-          checked={isKatakana}
-          onChange={(event) => setKatakana(event.target.checked)}
-        />
-      </Box> */}
     </Stack>
   );
 };

@@ -10,8 +10,8 @@ import { defaultExerciseType } from "data/options";
 const Exercises = () => {
   const [score, setScore] = useState([0, 0]);
   const [exercise, setExercise] = useState([]);
-  const [exerciseAction, setExerciseAction] = useState(
-    defaultExerciseType.value.action
+  const [exerciseDisplay, setExerciseDisplay] = useState(
+    defaultExerciseType.value.display
   );
   const [clearExerciseState, setClearExerciseState] = useState(false);
 
@@ -25,8 +25,8 @@ const Exercises = () => {
   };
 
   const generateExercise = (exerciseType, exerciseLength, elements) => {
-    const { action, question, answer } = exerciseType;
-    if (action === "recognize") {
+    const { display, question, answer } = exerciseType;
+    if (display === "recognize") {
       createRecognize(
         elements,
         exerciseLength,
@@ -34,15 +34,17 @@ const Exercises = () => {
           question,
           answer,
         },
-        action
+        display
       );
-    } else if (action === "write") {
-      createWrite(elements, exerciseLength, { question, answer }, action);
+    } else if (display === "write") {
+      createWrite(elements, exerciseLength, { question, answer }, display);
+    } else if (display === "puzzle") {
+      createPuzzle(elements, exerciseLength, { question, answer }, display);
     }
     return;
   };
 
-  const createWrite = (elements, exerciseLength, key, action) => {
+  const createWrite = (elements, exerciseLength, key, display) => {
     const fullList = shuffle(elements);
     const exerciseList = fullList.slice(0, exerciseLength);
     const exercise = exerciseList.map((element) => {
@@ -55,23 +57,39 @@ const Exercises = () => {
       };
     });
     setExercise(exercise);
-    setExerciseAction(action);
+    setExerciseDisplay(display);
   };
 
-  const createRecognize = (elements, exerciseLength, key, action) => {
+  const createPuzzle = (elements, exerciseLength, key, display) => {
+    const fullList = shuffle(elements);
+    const exerciseList = fullList.slice(0, exerciseLength);
+    const exercise = exerciseList.map((element, index) => {
+      return {
+        question: element.multiple
+          ? element[key.question][0]
+          : element[key.question],
+        answers: findPuzzleAnswers(exerciseList, fullList, index),
+        response: element[key.answer],
+      };
+    });
+    setExercise(exercise);
+    setExerciseDisplay(display);
+  };
+
+  const createRecognize = (elements, exerciseLength, key, display) => {
     const fullList = shuffle(elements);
     const exerciseList = fullList.slice(0, exerciseLength);
     const exercise = exerciseList.map((element, index) => {
       return {
         question: element[key.question],
-        answers: findAnswers(exerciseList, fullList, index).map(
+        answers: findRecognizeAnswers(exerciseList, fullList, index).map(
           (element) => element[key.answer]
         ),
         response: element[key.answer],
       };
     });
     setExercise(exercise);
-    setExerciseAction(action);
+    setExerciseDisplay(display);
   };
 
   const shuffle = (list) => {
@@ -81,18 +99,42 @@ const Exercises = () => {
       .map(({ value }) => value);
   };
 
-  const findAnswers = (exerciseList, fullList, index) => {
+  const findPuzzleAnswers = (exerciseList, fullList, index) => {
     const current = exerciseList[index];
-    let listWithoutCurrent = removeDuplicate(fullList, current);
+    let listWithoutCurrent = removeDuplicate(fullList, current, "char");
+    let listWithSameKana = listWithoutCurrent.filter(
+      (item) => item.kana === current.kana
+    );
+    const currentArray = current["char"].split("");
+    const additionnal = shuffle(listWithSameKana).slice(0, 1);
+    const additionnalArray = additionnal[0]["char"].split("");
+    const shuffledArray = shuffle(currentArray.concat(additionnalArray)).map(
+      (element, index) => {
+        return {
+          display: element,
+          index,
+        };
+      }
+    );
+    return shuffledArray;
+  };
+
+  const findRecognizeAnswers = (exerciseList, fullList, index) => {
+    const current = exerciseList[index];
+    let listWithoutCurrent = removeDuplicate(fullList, current, "romaji");
     const answer1 = shuffle(listWithoutCurrent).slice(0, 1);
-    let listWithoutAnswer1 = removeDuplicate(listWithoutCurrent, answer1[0]);
+    let listWithoutAnswer1 = removeDuplicate(
+      listWithoutCurrent,
+      answer1[0],
+      "romaji"
+    );
     const answer2 = shuffle(listWithoutAnswer1).slice(0, 1);
     return shuffle([current].concat(answer1, answer2));
   };
 
-  const removeDuplicate = (list, element) =>
+  const removeDuplicate = (list, element, key) =>
     list.filter((item) => {
-      if (item.romaji !== element.romaji) return item;
+      if (item[key] !== element[key]) return item;
     });
 
   return (
@@ -104,7 +146,7 @@ const Exercises = () => {
           <Score fail={score[0]} success={score[1]} total={exercise.length} />
           <Exercise
             exercise={exercise}
-            exerciseAction={exerciseAction}
+            exerciseDisplay={exerciseDisplay}
             handleScore={handleScore}
             clearExerciseState={clearExerciseState}
             updateExerciseState={() => setClearExerciseState(false)}
