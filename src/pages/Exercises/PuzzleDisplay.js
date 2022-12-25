@@ -3,12 +3,16 @@ import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const PuzzleDisplay = (props) => {
   const { exercise, index, isSubmitted, success, checkAnswerPuzzle } = props;
 
   const [selected, setSelected] = useState([]);
+
+  useEffect(() => {
+    setSelected([]);
+  }, [index]);
 
   return (
     <Box sx={{ userSelect: "none" }}>
@@ -83,7 +87,9 @@ const PuzzleDisplay = (props) => {
           })}
       </Box>
       <Button
-        onClick={() => checkAnswerPuzzle()}
+        onClick={() =>
+          checkAnswerPuzzle(selected.map((element) => element.display).join(""))
+        }
         variant={isSubmitted ? "soft" : "outlined"}
         color={
           isSubmitted && success

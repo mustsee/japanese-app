@@ -21,7 +21,22 @@ const Exercise = (props) => {
   // Specific to write
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const checkAnswerPuzzle = () => {
+  const checkAnswerPuzzle = (selection) => {
+    setIsSubmitted(true);
+    if (exercise[index].response.includes(selection)) {
+      setSuccess(true);
+      handleScore([0, 1]);
+    } else {
+      setSuccess(false);
+      handleScore([1, 0]);
+    }
+    setTimeout(() => {
+      const nextIndex = index + 1;
+      if (!exercise[nextIndex]) return;
+      setIndex(nextIndex);
+      setIsSubmitted(false);
+      setSuccess(false);
+    }, 1000);
     return;
   };
 

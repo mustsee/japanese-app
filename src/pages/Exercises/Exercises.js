@@ -107,7 +107,10 @@ const Exercises = () => {
     );
     const currentArray = current["char"].split("");
     const additionnal = shuffle(listWithSameKana).slice(0, 1);
-    const additionnalArray = additionnal[0]["char"].split("");
+    const additionnalArray = removeLittleTsu(
+      additionnal[0]["char"].split(""),
+      current.kana
+    );
     const shuffledArray = shuffle(currentArray.concat(additionnalArray)).map(
       (element, index) => {
         return {
@@ -136,6 +139,14 @@ const Exercises = () => {
     list.filter((item) => {
       if (item[key] !== element[key]) return item;
     });
+
+  const removeLittleTsu = (elements, kana) => {
+    if (kana === "hiragana") {
+      return elements.filter((element) => element !== "っ");
+    } else if (kana === "katakana") {
+      return elements.filter((element) => element !== "ッ");
+    }
+  };
 
   return (
     <>
