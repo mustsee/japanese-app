@@ -10,8 +10,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Root } from "./components/Layout";
 
 function App() {
+  const basename = document.querySelector("base")?.getAttribute("href") ?? "/";
+
   return (
-    <Router>
+    <Router basename={basename}>
       <CssVarsProvider>
         <Root>
           <Routes>
