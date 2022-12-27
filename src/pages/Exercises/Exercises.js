@@ -107,7 +107,7 @@ const Exercises = () => {
     );
     const currentArray = current["char"].split("");
     const additionnal = shuffle(listWithSameKana).slice(0, 1);
-    const additionnalArray = removeLittleTsu(
+    const additionnalArray = removeDuplicates(
       additionnal[0]["char"].split(""),
       current.kana
     );
@@ -140,11 +140,16 @@ const Exercises = () => {
       if (item[key] !== element[key]) return item;
     });
 
-  const removeLittleTsu = (elements, kana) => {
+  const removeDuplicates = (elements, kana) => {
     if (kana === "hiragana") {
-      return elements.filter((element) => element !== "っ");
+      return elements
+        .filter((element) => element !== "っ") // little tsu - pause
+        .filter((element) => element !== "う") // u : long vowel
+        .filter((element) => element !== "い"); // i : long vowel
     } else if (kana === "katakana") {
-      return elements.filter((element) => element !== "ッ");
+      return elements
+        .filter((element) => element !== "ッ") // little tsu : pause
+        .filter((element) => element !== "ー"); // ー : long vowel
     }
   };
 

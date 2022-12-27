@@ -1,5 +1,15 @@
-import { hiragana, hiraganaAccents, hiraganaPause } from "data/hiragana";
-import { katakana, katakanaAccents, katakanaPause } from "data/katakana";
+import {
+  hiragana,
+  hiraganaAccents,
+  hiraganaLongVowel,
+  hiraganaPause,
+} from "data/hiragana";
+import {
+  katakana,
+  katakanaAccents,
+  katakanaLongVowel,
+  katakanaPause,
+} from "data/katakana";
 
 const dataExerciseLengths = [
   { label: "10", value: 10 },
@@ -100,6 +110,12 @@ const dataExerciseOptions = {
           data: hiraganaPause,
           isChecked: true,
         },
+        {
+          label: "Long Vowel",
+          key: "writeOptions-Hiragana-Long-Vowel",
+          data: hiraganaLongVowel,
+          isChecked: true,
+        },
       ],
     },
     {
@@ -110,6 +126,12 @@ const dataExerciseOptions = {
           label: "Pause",
           key: "writeOptions-Katakana-Pause",
           data: katakanaPause,
+          isChecked: true,
+        },
+        {
+          label: "Long Vowel",
+          key: "writeOptions-Katakana-Long-Vowel",
+          data: katakanaLongVowel,
           isChecked: true,
         },
       ],

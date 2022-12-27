@@ -831,6 +831,81 @@ const katakanaAccentsTable = [
   ],
 ];
 
+const katakanaLongVowel = [
+  {
+    char: "ラーメン",
+    romaji: ["rāmen", "râmen"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "ケーキ",
+    romaji: ["kēki", "kêki"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "レシート",
+    romaji: ["reshīto", "reshîto"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "ウール",
+    romaji: ["ūru", "ûru"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "ハンバーガー",
+    romaji: ["hanbāgā", "hanbâgâ"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "オールスター",
+    romaji: ["ōrusutā", "ôrusutâ"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "スポーツ",
+    romaji: ["supōtsu", "supôtsu"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "ベーコン",
+    romaji: ["bēkon", "bêkon"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "リーフレット",
+    romaji: ["rīfuretto", "rîfuretto"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "トースター",
+    romaji: ["tōsutā", "tôsutâ"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "ストーリー",
+    romaji: ["sutōri", "sutôri"],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "ウーパールーパー",
+    romaji: ["ūpārūpā", "ûpârûpâ"],
+    multiple: true,
+    kana: "katakana",
+  },
+];
+
 const katakanaPause = [
   {
     char: "ネット",
@@ -932,4 +1007,5 @@ export {
   katakanaAccents,
   katakanaAccentsTable,
   katakanaPause,
+  katakanaLongVowel,
 };

@@ -821,6 +821,153 @@ const hiraganaAccentsTable = [
   ],
 ];
 
+const hiraganaLongVowel = [
+  {
+    char: "おうじ",
+    romaji: ["ōji", "ôji"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "けいご",
+    romaji: ["kēgo", "kêgo"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "そうび",
+    romaji: ["sōbi", "sôbi"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "ぐうわ",
+    romaji: ["gūwa", "gûwa"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "せいざ",
+    romaji: ["sēza", "sêza"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "おばあさん",
+    romaji: ["obāsan", "obâsan"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "せってい",
+    romaji: ["settē", "settê"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "あいきどう",
+    romaji: ["aikidō", "aikidô"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "ていねいご",
+    romaji: ["tēnēgo", "tênêgo"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "びよういん",
+    romaji: ["biyōin", "biyôin"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "かのうせい",
+    romaji: ["kanōsē", "kanôsê"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "めいおうせい",
+    romaji: ["mēōsē", "mêôsê"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "くうき",
+    romaji: ["kūki", "kûki"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "えいが",
+    romaji: ["ēga", "êga"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "こうがい",
+    romaji: ["kōgai", "kôgai"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "ようい",
+    romaji: ["yōi", "yôi"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "へいせい",
+    romaji: ["hēsē", "hêsê"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "ぼうし",
+    romaji: ["bōshi", "bôshi"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "ほうりつ",
+    romaji: ["hōritsu", "hôritsu"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "しっぷう",
+    romaji: ["shippū", "shippû"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "おじいさん",
+    romaji: ["ojīsan", "ojîsan"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "らんとう",
+    romaji: ["rantō", "rantô"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "ようもう",
+    romaji: ["yōmō", "yômô"],
+    kana: "hiragana",
+    multiple: true,
+  },
+  {
+    char: "こうていぶん",
+    romaji: ["kōtēbun", "kôtêbun"],
+    kana: "hiragana",
+    multiple: true,
+  },
+];
+
 const hiraganaPause = [
   {
     char: "とって",
@@ -920,4 +1067,5 @@ export {
   hiraganaAccents,
   hiraganaAccentsTable,
   hiraganaPause,
+  hiraganaLongVowel,
 };
