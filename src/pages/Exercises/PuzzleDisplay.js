@@ -14,10 +14,6 @@ const PuzzleDisplay = (props) => {
     setSelected([]);
   }, [index]);
 
-  const vibrate = () => {
-    navigator.vibrate(200);
-  };
-
   return (
     <Box sx={{ userSelect: "none" }}>
       <Typography
@@ -52,7 +48,6 @@ const PuzzleDisplay = (props) => {
                   onClick={() => {
                     if (!isSubmitted) {
                       setSelected(selected.filter((x) => x !== element));
-                      vibrate();
                     }
                   }}
                 >
@@ -86,7 +81,6 @@ const PuzzleDisplay = (props) => {
                 onClick={() => {
                   if (!isSubmitted) {
                     setSelected(selected.concat(element));
-                    vibrate();
                   }
                 }}
                 key={element.display + "-" + index}
