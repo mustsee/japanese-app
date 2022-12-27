@@ -4,7 +4,7 @@ import { KanaTable } from "components/KanaTable";
 import { useState, createRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 
-const appName = "/japanese-app";
+const basename = document.querySelector("base")?.getAttribute("href") ?? "/";
 
 const Main = (props) => {
   const canvasRef = createRef(null);
@@ -81,7 +81,7 @@ const Main = (props) => {
           />
         ) : syllable.svg ? (
           <img
-            src={`${appName}/svg/${syllable.prefix}-${syllable.romaji}.svg`}
+            src={`${basename}/svg/${syllable.prefix}-${syllable.romaji}.svg`}
             alt={syllable.romaji}
             style={{ padding: "15%" }}
           />
