@@ -2,8 +2,9 @@
   "name": "japanese-1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mustsee.github.io/japanese-app",
   "dependencies": {
+    "@capacitor/android": "^4.6.1",
+    "@capacitor/core": "^4.6.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/public-sans": "^4.5.11",
@@ -46,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^4.6.1"
   }
 }

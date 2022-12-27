@@ -6,7 +6,7 @@ import { HiraganaDakutenHandakuten } from "pages/HiraganaDakutenHandakuten";
 import { Home } from "pages/Home";
 import { Katakana } from "pages/Katakana";
 import { KatakanaDakutenHandakuten } from "pages/KatakanaDakutenHandakuten";
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Root } from "./components/Layout";
 
 function App() {

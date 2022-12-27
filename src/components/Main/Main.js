@@ -4,7 +4,8 @@ import { KanaTable } from "components/KanaTable";
 import { useState, createRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 
-const appName = "/japanese-app";
+let appName = "/japanese-app";
+appName = "";
 
 const Main = (props) => {
   const canvasRef = createRef(null);
