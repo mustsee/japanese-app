@@ -4,6 +4,7 @@ import Button from "@mui/joy/Button";
 import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
 import { useState, useEffect } from "react";
+import { Haptics, ImpactStyle } from "@capacitor/haptics";
 
 const PuzzleDisplay = (props) => {
   const { exercise, index, isSubmitted, success, checkAnswerPuzzle } = props;
@@ -48,6 +49,7 @@ const PuzzleDisplay = (props) => {
                   onClick={() => {
                     if (!isSubmitted) {
                       setSelected(selected.filter((x) => x !== element));
+                      Haptics.impact({ style: ImpactStyle.Light });
                     }
                   }}
                 >
@@ -81,6 +83,7 @@ const PuzzleDisplay = (props) => {
                 onClick={() => {
                   if (!isSubmitted) {
                     setSelected(selected.concat(element));
+                    Haptics.impact({ style: ImpactStyle.Light });
                   }
                 }}
                 key={element.display + "-" + index}
