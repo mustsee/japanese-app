@@ -1,14 +1,10 @@
 import { Box, Button, Card, Divider, Stack, Typography } from "@mui/joy";
 import { Header } from "components/Header";
 import { KanaTable } from "components/KanaTable";
-import React, { useState, createRef } from "react";
+import { useState, createRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 
 const appName = "/japanese-app";
-
-/* const voyelles = "アイウエオ";
-const kLine = "カキクケコ";
-const sLine = "サシスセソ"; */
 
 const Main = (props) => {
   const canvasRef = createRef(null);
@@ -70,6 +66,8 @@ const Main = (props) => {
         variant="outlined"
         sx={{
           height: "300px",
+          width: "300px",
+          margin: "auto",
           boxSizing: "border-box",
         }}
       >
