@@ -1,6 +1,7 @@
 import { Stack, Button, Typography } from "@mui/joy";
 import { MainSection } from "components/Layout";
 import { Header } from "components/Header";
+import { PromoteInstall } from "components/Header";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -62,6 +63,7 @@ function Home() {
               </Button>
             </Link>
           </Stack>
+          <PromoteInstall />
         </Stack>
       </MainSection>
       <Stack />
