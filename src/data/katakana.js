@@ -831,6 +831,376 @@ const katakanaAccentsTable = [
   ],
 ];
 
+const katakanaYVowelSoundsTable = [
+  ["", "ya", "yu", "yo"],
+  [
+    "ki",
+    {
+      romaji: "kya",
+      char: "キャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "kyu",
+      char: "キュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "kyo",
+      char: "キョ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "gi",
+    {
+      romaji: "gya",
+      char: "ギャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "gyu",
+      char: "ギュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "gyo",
+      char: "ギョ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "shi",
+    {
+      romaji: "sha",
+      char: "シャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "shu",
+      char: "シュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "sho",
+      char: "ショ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "ji",
+    {
+      romaji: "ja",
+      char: "ジャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ju",
+      char: "ジュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "jo",
+      char: "ジョ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "chi",
+    {
+      romaji: "cha",
+      char: "チャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "chu",
+      char: "チュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "cho",
+      char: "チョ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "ni",
+    {
+      romaji: "nya",
+      char: "ニャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "nyu",
+      char: "ニュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "nyo",
+      char: "ニョ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "hi",
+    {
+      romaji: "hya",
+      char: "ヒャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "hyu",
+      char: "ヒュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "hyo",
+      char: "ヒョ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "bi",
+    {
+      romaji: "bya",
+      char: "ビャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "byu",
+      char: "ビュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "byo",
+      char: "ビョ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "pi",
+    {
+      romaji: "pya",
+      char: "ピャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "pyu",
+      char: "ピュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "pyo",
+      char: "ピョ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "mi",
+    {
+      romaji: "mya",
+      char: "ミャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "myu",
+      char: "ミュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "myo",
+      char: "ミョ",
+      prefix: "katakana",
+    },
+  ],
+  [
+    "ri",
+    {
+      romaji: "rya",
+      char: "リャ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ryu",
+      char: "リュ",
+      prefix: "katakana",
+    },
+    {
+      romaji: "ryo",
+      char: "リョ",
+      prefix: "katakana",
+    },
+  ],
+];
+
+const katakanaYVowelSounds = [
+  {
+    romaji: "kya",
+    char: "キャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "kyu",
+    char: "キュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "kyo",
+    char: "キョ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "gya",
+    char: "ギャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "gyu",
+    char: "ギュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "gyo",
+    char: "ギョ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "sha",
+    char: "シャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "shu",
+    char: "シュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "sho",
+    char: "ショ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "ja",
+    char: "ジャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "ju",
+    char: "ジュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "jo",
+    char: "ジョ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "cha",
+    char: "チャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "chu",
+    char: "チュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "cho",
+    char: "チョ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "nya",
+    char: "ニャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "nyu",
+    char: "ニュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "nyo",
+    char: "ニョ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "hya",
+    char: "ヒャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "hyu",
+    char: "ヒュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "hyo",
+    char: "ヒョ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "bya",
+    char: "ビャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "byu",
+    char: "ビュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "byo",
+    char: "ビョ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "pya",
+    char: "ピャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "pyu",
+    char: "ピュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "pyo",
+    char: "ピョ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "mya",
+    char: "ミャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "myu",
+    char: "ミュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "myo",
+    char: "ミョ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "rya",
+    char: "リャ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "ryu",
+    char: "リュ",
+    prefix: "katakana",
+  },
+  {
+    romaji: "ryo",
+    char: "リョ",
+    prefix: "katakana",
+  },
+];
+
 const katakanaLongVowel = [
   {
     char: "ラーメン",
@@ -1006,6 +1376,8 @@ export {
   katakanaTable,
   katakanaAccents,
   katakanaAccentsTable,
+  katakanaYVowelSounds,
+  katakanaYVowelSoundsTable,
   katakanaPause,
   katakanaLongVowel,
 };

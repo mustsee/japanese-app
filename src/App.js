@@ -7,6 +7,7 @@ import { HiraganaYVowelSounds } from "pages/HiraganaYVowelSounds";
 import { Home } from "pages/Home";
 import { Katakana } from "pages/Katakana";
 import { KatakanaDakutenHandakuten } from "pages/KatakanaDakutenHandakuten";
+import { KatakanaYVowelSounds } from "pages/KatakanaYVowelSounds";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Root } from "./components/Layout";
 
@@ -33,6 +34,10 @@ function App() {
             <Route
               path="/hiragana-y-vowel-sounds"
               element={<HiraganaYVowelSounds />}
+            />
+            <Route
+              path="/katakana-y-vowel-sounds"
+              element={<KatakanaYVowelSounds />}
             />
             <Route path="/exercices" element={<Exercises />} />
           </Routes>

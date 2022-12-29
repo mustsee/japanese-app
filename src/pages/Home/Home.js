@@ -50,6 +50,12 @@ function Home() {
             >
               <Button fullWidth>Hiragana Y Vowel Sounds</Button>
             </Link>
+            <Link
+              to="katakana-y-vowel-sounds"
+              style={{ textDecoration: "none" }}
+            >
+              <Button fullWidth>Katakana Y Vowel Sounds</Button>
+            </Link>
             <Link to="exercices" style={{ textDecoration: "none" }}>
               <Button color="info" fullWidth>
                 Exercises

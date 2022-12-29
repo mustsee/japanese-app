@@ -1,0 +1,1 @@
+export { KatakanaYVowelSounds } from "./KatakanaYVowelSounds";
