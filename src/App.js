@@ -8,12 +8,12 @@ import { Home } from "pages/Home";
 import { Katakana } from "pages/Katakana";
 import { KatakanaDakutenHandakuten } from "pages/KatakanaDakutenHandakuten";
 import { KatakanaYVowelSounds } from "pages/KatakanaYVowelSounds";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { Root } from "./components/Layout";
 
 function App() {
   const basename =
-    document.querySelector("base")?.getAttribute("href") ?? "/japanese-app";
+    document.querySelector("base")?.getAttribute("href") ?? "/#/japanese-app";
 
   return (
     <Router basename={basename}>
