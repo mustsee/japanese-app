@@ -44,6 +44,12 @@ function Home() {
             >
               <Button fullWidth>Katakana Dakuten/Handakuten</Button>
             </Link>
+            <Link
+              to="hiragana-y-vowel-sounds"
+              style={{ textDecoration: "none" }}
+            >
+              <Button fullWidth>Hiragana Y Vowel Sounds</Button>
+            </Link>
             <Link to="exercices" style={{ textDecoration: "none" }}>
               <Button color="info" fullWidth>
                 Exercises

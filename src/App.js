@@ -3,6 +3,7 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import { Exercises } from "pages/Exercises";
 import { Hiragana } from "pages/Hiragana";
 import { HiraganaDakutenHandakuten } from "pages/HiraganaDakutenHandakuten";
+import { HiraganaYVowelSounds } from "pages/HiraganaYVowelSounds";
 import { Home } from "pages/Home";
 import { Katakana } from "pages/Katakana";
 import { KatakanaDakutenHandakuten } from "pages/KatakanaDakutenHandakuten";
@@ -28,6 +29,10 @@ function App() {
             <Route
               path="/katakana-dakuten-handakuten"
               element={<KatakanaDakutenHandakuten />}
+            />
+            <Route
+              path="/hiragana-y-vowel-sounds"
+              element={<HiraganaYVowelSounds />}
             />
             <Route path="/exercices" element={<Exercises />} />
           </Routes>

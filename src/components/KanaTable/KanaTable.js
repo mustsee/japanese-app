@@ -18,7 +18,9 @@ const KanaTable = (props) => {
         variant="outlined"
         sx={{
           display: "grid",
-          gridTemplateColumns: "0.8fr 1fr 1fr 1fr 1fr 1fr",
+          gridTemplateColumns: !props.gridTemplateColumns
+            ? "0.8fr 1fr 1fr 1fr 1fr 1fr"
+            : props.gridTemplateColumns,
           gridTemplateRows: rowsNumber(props.table),
           userSelect: "none",
         }}

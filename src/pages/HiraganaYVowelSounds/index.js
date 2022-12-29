@@ -1,0 +1,1 @@
+export { HiraganaYVowelSounds } from "./HiraganaYVowelSounds";

@@ -88,7 +88,7 @@ const Main = (props) => {
         ) : (
           <Typography
             sx={{
-              fontSize: "150px",
+              fontSize: syllable.char.length > 1 ? "120px" : "150px",
               display: "flex",
               flex: 1,
               justifyContent: "center",
@@ -131,6 +131,9 @@ const Main = (props) => {
         table={props.table}
         currentChar={syllable.char}
         handleChooseChar={handleChooseChar}
+        gridTemplateColumns={
+          !props.gridTemplateColumns ? null : props.gridTemplateColumns
+        }
       />
     </Stack>
   );

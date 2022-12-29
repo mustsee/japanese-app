@@ -821,6 +821,376 @@ const hiraganaAccentsTable = [
   ],
 ];
 
+const hiraganaYVowelSoundsTable = [
+  ["", "ya", "yu", "yo"],
+  [
+    "ki",
+    {
+      romaji: "kya",
+      char: "きゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "kyu",
+      char: "きゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "kyo",
+      char: "きょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "gi",
+    {
+      romaji: "gya",
+      char: "ぎゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "gyu",
+      char: "ぎゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "gyo",
+      char: "ぎょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "shi",
+    {
+      romaji: "sha",
+      char: "しゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "shu",
+      char: "しゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "sho",
+      char: "しょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "ji",
+    {
+      romaji: "ja",
+      char: "じゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "ju",
+      char: "じゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "jo",
+      char: "じょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "chi",
+    {
+      romaji: "cha",
+      char: "ちゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "chu",
+      char: "ちゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "cho",
+      char: "ちょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "ni",
+    {
+      romaji: "nya",
+      char: "にゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "nyu",
+      char: "にゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "nyo",
+      char: "にょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "hi",
+    {
+      romaji: "hya",
+      char: "ひゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "hyu",
+      char: "ひゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "hyo",
+      char: "ひょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "bi",
+    {
+      romaji: "bya",
+      char: "びゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "byu",
+      char: "びゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "byo",
+      char: "びょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "pi",
+    {
+      romaji: "pya",
+      char: "ぴゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "pyu",
+      char: "ぴゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "pyo",
+      char: "ぴょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "mi",
+    {
+      romaji: "mya",
+      char: "みゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "myu",
+      char: "みゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "myo",
+      char: "みょ",
+      prefix: "hiragana",
+    },
+  ],
+  [
+    "ri",
+    {
+      romaji: "rya",
+      char: "りゃ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "ryu",
+      char: "りゅ",
+      prefix: "hiragana",
+    },
+    {
+      romaji: "ryo",
+      char: "りょ",
+      prefix: "hiragana",
+    },
+  ],
+];
+
+const hiraganaYVowelSounds = [
+  {
+    romaji: "kya",
+    char: "きゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "kyu",
+    char: "きゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "kyo",
+    char: "きょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "gya",
+    char: "ぎゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "gyu",
+    char: "ぎゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "gyo",
+    char: "ぎょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "sha",
+    char: "しゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "shu",
+    char: "しゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "sho",
+    char: "しょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "ja",
+    char: "じゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "ju",
+    char: "じゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "jo",
+    char: "じょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "cha",
+    char: "ちゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "chu",
+    char: "ちゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "cho",
+    char: "ちょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "nya",
+    char: "にゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "nyu",
+    char: "にゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "nyo",
+    char: "にょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "hya",
+    char: "ひゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "hyu",
+    char: "ひゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "hyo",
+    char: "ひょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "bya",
+    char: "びゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "byu",
+    char: "びゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "byo",
+    char: "びょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "pya",
+    char: "ぴゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "pyu",
+    char: "ぴゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "pyo",
+    char: "ぴょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "mya",
+    char: "みゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "myu",
+    char: "みゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "myo",
+    char: "みょ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "rya",
+    char: "りゃ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "ryu",
+    char: "りゅ",
+    prefix: "hiragana",
+  },
+  {
+    romaji: "ryo",
+    char: "りょ",
+    prefix: "hiragana",
+  },
+];
+
 const hiraganaLongVowel = [
   {
     char: "おうじ",
@@ -1066,6 +1436,8 @@ export {
   hiraganaTable,
   hiraganaAccents,
   hiraganaAccentsTable,
+  hiraganaYVowelSounds,
+  hiraganaYVowelSoundsTable,
   hiraganaPause,
   hiraganaLongVowel,
 };
