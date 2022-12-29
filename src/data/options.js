@@ -3,12 +3,14 @@ import {
   hiraganaAccents,
   hiraganaLongVowel,
   hiraganaPause,
+  hiraganaYVowelSoundsExercise,
 } from "data/hiragana";
 import {
   katakana,
   katakanaAccents,
   katakanaLongVowel,
   katakanaPause,
+  katakanaYVowelSoundsExercise,
 } from "data/katakana";
 
 const dataExerciseLengths = [
@@ -116,6 +118,12 @@ const dataExerciseOptions = {
           data: hiraganaLongVowel,
           isChecked: true,
         },
+        {
+          label: "Y Vowel Sounds",
+          key: "writeOptions-Hiragana-Y-Vowel-Sounds",
+          data: hiraganaYVowelSoundsExercise,
+          isChecked: true,
+        },
       ],
     },
     {
@@ -132,6 +140,12 @@ const dataExerciseOptions = {
           label: "Long Vowel",
           key: "writeOptions-Katakana-Long-Vowel",
           data: katakanaLongVowel,
+          isChecked: true,
+        },
+        {
+          label: "Y Vowel Sounds",
+          key: "writeOptions-Katakana-Y-Vowel-Sounds",
+          data: katakanaYVowelSoundsExercise,
           isChecked: true,
         },
       ],

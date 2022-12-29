@@ -1191,6 +1191,10 @@ const hiraganaYVowelSounds = [
   },
 ];
 
+/***************************
+ ******  EXERCISES  ********
+ **************************/
+
 const hiraganaLongVowel = [
   {
     char: "おうじ",
@@ -1431,6 +1435,124 @@ const hiraganaPause = [
   },
 ];
 
+const hiraganaYVowelSoundsExercise = [
+  {
+    char: "きょう",
+    romaji: ["kyō", "kyô"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "ひょうげん",
+    romaji: ["hyōgen", "hyôgen"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "じょせい",
+    romaji: ["josē", "josê"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "ちゃんと",
+    romaji: "chanto",
+    kana: "hiragana",
+  },
+  {
+    char: "ちきゅう",
+    romaji: ["chikyū", "chikyû"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "かいしゃ",
+    romaji: "kaisha",
+    kana: "hiragana",
+  },
+  {
+    char: "りゃくご",
+    romaji: "ryakugo",
+    kana: "hiragana",
+  },
+  {
+    char: "じゅうびょう",
+    romaji: ["jūbyō", "jûbyô"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "ぎゅうしゃ",
+    romaji: ["gyūsha", "gyûsha"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "にゅうしゅ",
+    romaji: ["nyūshu", "nyûshu"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "おちゃ",
+    romaji: "ocha",
+    kana: "hiragana",
+  },
+  {
+    char: "じゃま",
+    romaji: "jama",
+    kana: "hiragana",
+  },
+  {
+    char: "ちゅうい",
+    romaji: ["chūi", "chûi"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "ぎょうざ",
+    romaji: ["gyōza", "gyôza"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "じどうしゃ",
+    romaji: ["jidōsha", "jidôsha"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "にくきゅう",
+    romaji: ["nikukyū", "nikukyû"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "はっぴょう",
+    romaji: ["happyō", "happyô"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "しゃりょう",
+    romaji: ["sharyō", "sharyô"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "にゅうりょく",
+    romaji: ["nyūryoku", "nyûryoku"],
+    multiple: true,
+    kana: "hiragana",
+  },
+  {
+    char: "しゅうちゅう",
+    romaji: ["shūchū", "shûchû"],
+    multiple: true,
+    kana: "hiragana",
+  },
+];
+
 export {
   hiragana,
   hiraganaTable,
@@ -1440,4 +1562,5 @@ export {
   hiraganaYVowelSoundsTable,
   hiraganaPause,
   hiraganaLongVowel,
+  hiraganaYVowelSoundsExercise,
 };

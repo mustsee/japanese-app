@@ -1201,6 +1201,10 @@ const katakanaYVowelSounds = [
   },
 ];
 
+/***************************
+ ******  EXERCISES  ********
+ **************************/
+
 const katakanaLongVowel = [
   {
     char: "ラーメン",
@@ -1371,6 +1375,100 @@ const katakanaPause = [
   },
 ];
 
+const katakanaYVowelSoundsExercise = [
+  {
+    char: "ボリューム",
+    romaji: ["BORYŪMU".toLowerCase(), "BORYÛMU".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "レビュー",
+    romaji: ["REBYŪ".toLowerCase(), "REBYÛ".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "ギャラクシー",
+    romaji: ["GYARAKUSHĪ".toLowerCase(), "GYARAKUSHÎ".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "チャンネル",
+    romaji: "CHANNERU".toLowerCase(),
+    kana: "katakana",
+  },
+  {
+    char: "サンキュー",
+    romaji: ["SANKYŪ".toLowerCase(), "SANKYÛ".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "シチュー",
+    romaji: ["SHICHŪ".toLowerCase(), "SHICHÛ".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "シミュレーション",
+    romaji: ["SHIMYURĒSHON".toLowerCase(), "SHIMYURÊSHON".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "ミュージシャン",
+    romaji: ["MYŪJISHAN".toLowerCase(), "MYÛJISHAN".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "チャンス",
+    romaji: "CHANSU".toLowerCase(),
+    kana: "katakana",
+  },
+  {
+    char: "コスチューム",
+    romaji: ["KOSUCHŪMU".toLowerCase(), "KOSUCHÛMU".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "キッシュ",
+    romaji: "KISSHU".toLowerCase(),
+    kana: "katakana",
+  },
+  {
+    char: "キャットフード",
+    romaji: ["KYATTOFŪDO".toLowerCase(), "KYATTOFÛDO".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "ギャング",
+    romaji: "GYANGU".toLowerCase(),
+    kana: "katakana",
+  },
+  {
+    char: "コーポレーション",
+    romaji: ["KŌPORĒSHON".toLowerCase(), "KÔPORÊSHON".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+  {
+    char: "マニキュア",
+    romaji: "MANIKYUA".toLowerCase(),
+    kana: "katakana",
+  },
+  {
+    char: "イリュージョン",
+    romaji: ["IRYŪJON".toLowerCase(), "IRYÛJON".toLowerCase()],
+    multiple: true,
+    kana: "katakana",
+  },
+];
+
 export {
   katakana,
   katakanaTable,
@@ -1380,4 +1478,5 @@ export {
   katakanaYVowelSoundsTable,
   katakanaPause,
   katakanaLongVowel,
+  katakanaYVowelSoundsExercise,
 };
