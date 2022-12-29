@@ -12,11 +12,8 @@ import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { Root } from "./components/Layout";
 
 function App() {
-  const basename =
-    document.querySelector("base")?.getAttribute("href") ?? "/#/japanese-app";
-
   return (
-    <Router basename={basename}>
+    <Router>
       <CssVarsProvider>
         <Root>
           <Routes>

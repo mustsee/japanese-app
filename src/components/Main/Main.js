@@ -4,7 +4,7 @@ import { KanaTable } from "components/KanaTable";
 import { useState, createRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
 
-const basename = document.querySelector("base")?.getAttribute("href") ?? "/";
+const basename = "/japanese-app";
 
 const Main = (props) => {
   const canvasRef = createRef(null);
