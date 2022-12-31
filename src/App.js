@@ -1,4 +1,5 @@
 import "@fontsource/public-sans";
+import CssBaseline from "@mui/joy/CssBaseline";
 import { CssVarsProvider } from "@mui/joy/styles";
 import { Exercises } from "pages/Exercises";
 import { Hiragana } from "pages/Hiragana";
@@ -15,6 +16,7 @@ function App() {
   return (
     <Router>
       <CssVarsProvider>
+        <CssBaseline />
         <Root>
           <Routes>
             <Route path="/" element={<Home />} />

@@ -83,7 +83,7 @@ const Main = (props) => {
           <img
             src={`${basename}/svg/${syllable.prefix}-${syllable.romaji}.svg`}
             alt={syllable.romaji}
-            style={{ padding: "15%" }}
+            style={{ padding: "15%", backgroundColor: "#fefefe" }}
           />
         ) : (
           <Typography

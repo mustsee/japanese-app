@@ -40,21 +40,23 @@ const KanaTable = (props) => {
                   boxSizing: "border-box",
                   ...(rowIndex === 0 && {
                     borderRight: "none",
-                    color: "#333",
+                    color: "#666",
                   }),
                   ...(elementIndex === 0 && {
                     borderBottom: "none",
                     borderLeft: "none",
-                    color: "#333",
+                    color: "#666",
                   }),
                   ...(!(rowIndex === 0 || elementIndex === 0) && {
                     "&:hover": {
                       backgroundColor: "#f1f1f1",
+                      color: "#212427",
                       cursor: "pointer",
                     },
                   }),
                   ...(props.currentChar === element.char && {
                     backgroundColor: "#eee",
+                    color: "#212427",
                   }),
                 }}
               >

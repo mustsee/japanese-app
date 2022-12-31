@@ -1,10 +1,27 @@
 import { Stack, Button, Typography } from "@mui/joy";
 import { MainSection } from "components/Layout";
 import { Header } from "components/Header";
-import { PromoteInstallBis } from "components/Header";
+import { useColorScheme } from "@mui/joy/styles";
+/* import { PromoteInstallBis } from "components/Header"; */
 import { Link } from "react-router-dom";
 
+function LinkWithButton({ src, text, mode, color = "primary" }) {
+  return (
+    <Link to={src} style={{ textDecoration: "none" }}>
+      <Button
+        variant={mode === "dark" ? "soft" : "solid"}
+        color={color}
+        fullWidth
+      >
+        {text}
+      </Button>
+    </Link>
+  );
+}
+
 function Home() {
+  const { mode, setMode } = useColorScheme();
+
   return (
     <>
       <Stack />
@@ -27,44 +44,44 @@ function Home() {
             exercises for practice !
           </Typography>
           <Stack sx={{ display: "flex", flexDirection: "column", gap: "1em" }}>
-            <Link to="hiragana" style={{ textDecoration: "none" }}>
-              <Button fullWidth>Hiragana</Button>
-            </Link>
-            <Link to="katakana" style={{ textDecoration: "none" }}>
-              <Button fullWidth>Katakana</Button>
-            </Link>
-            <Link
-              to="hiragana-dakuten-handakuten"
-              style={{ textDecoration: "none" }}
-            >
-              <Button fullWidth>Hiragana Dakuten/Handakuten</Button>
-            </Link>
-            <Link
-              to="katakana-dakuten-handakuten"
-              style={{ textDecoration: "none" }}
-            >
-              <Button fullWidth>Katakana Dakuten/Handakuten</Button>
-            </Link>
-            <Link
-              to="hiragana-y-vowel-sounds"
-              style={{ textDecoration: "none" }}
-            >
-              <Button fullWidth>Hiragana Y Vowel Sounds</Button>
-            </Link>
-            <Link
-              to="katakana-y-vowel-sounds"
-              style={{ textDecoration: "none" }}
-            >
-              <Button fullWidth>Katakana Y Vowel Sounds</Button>
-            </Link>
-            <Link to="exercices" style={{ textDecoration: "none" }}>
-              <Button color="info" fullWidth>
-                Exercises
-              </Button>
-            </Link>
+            <LinkWithButton src="hiragana" text="Hiragana" mode={mode} />
+            <LinkWithButton src="katakana" text="Katakana" mode={mode} />
+            <LinkWithButton
+              src="hiragana-dakuten-handakuten"
+              text="Hiragana Dakuten/Handakuten"
+              mode={mode}
+            />
+            <LinkWithButton
+              src="katakana-dakuten-handakuten"
+              text="Katakana Dakuten/Handakuten"
+              mode={mode}
+            />
+            <LinkWithButton
+              src="hiragana-y-vowel-sounds"
+              text="Hiragana Y Vowel Sounds"
+              mode={mode}
+            />
+            <LinkWithButton
+              src="katakana-y-vowel-sounds"
+              text="Katakana Y Vowel Sounds"
+              mode={mode}
+            />
+            <LinkWithButton
+              src="exercices"
+              text="Exercises"
+              mode={mode}
+              color="info"
+            />
           </Stack>
+          <Button
+            variant="outlined"
+            color="neutral"
+            onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+          >
+            {mode === "dark" ? "Turn light" : "Turn dark"}
+          </Button>
           {/* <PromoteInstall /> */}
-          <PromoteInstallBis />
+          {/* <PromoteInstallBis /> */}
         </Stack>
       </MainSection>
       <Stack />
