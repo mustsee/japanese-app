@@ -33,7 +33,6 @@ function Header(props) {
 const HeaderWrapper = (props) => {
   return (
     <Card
-      variant="outlined"
       sx={{
         p: 0.5,
         userSelect: "none",

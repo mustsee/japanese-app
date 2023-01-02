@@ -1,9 +1,11 @@
-import { Stack, Button, Typography } from "@mui/joy";
-import { MainSection } from "components/Layout";
-import { Header } from "components/Header";
+import { Button, Stack, Typography } from "@mui/joy";
 import { useColorScheme } from "@mui/joy/styles";
+import { Header } from "components/Header";
+import { MainSection } from "components/Layout";
+import { useState } from "react";
 /* import { PromoteInstallBis } from "components/Header"; */
 import { Link } from "react-router-dom";
+import screenfull from "screenfull";
 
 function LinkWithButton({ src, text, mode, color = "primary" }) {
   return (
@@ -21,6 +23,15 @@ function LinkWithButton({ src, text, mode, color = "primary" }) {
 
 function Home() {
   const { mode, setMode } = useColorScheme();
+  const [isFullscreen, setIsFullScreen] = useState(false);
+
+  const handleFullScreen = () => {
+    if (screenfull.isEnabled) {
+      if (!isFullscreen)
+        screenfull.request().finally(() => setIsFullScreen(true));
+      else screenfull.exit().finally(() => setIsFullScreen(false));
+    }
+  };
 
   return (
     <>
@@ -72,13 +83,22 @@ function Home() {
               mode={mode}
             />
           </Stack>
-          <Button
-            variant="outlined"
-            color="neutral"
-            onClick={() => setMode(mode === "dark" ? "light" : "dark")}
-          >
-            {mode === "dark" ? "Turn light" : "Turn dark"}
-          </Button>
+          <Stack sx={{ display: "flex", flexDirection: "column", gap: "1em" }}>
+            <Button
+              variant="outlined"
+              color="neutral"
+              onClick={handleFullScreen}
+            >
+              {isFullscreen ? "Exit full screen" : "Enter full screen"}
+            </Button>
+            <Button
+              variant="outlined"
+              color="neutral"
+              onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+            >
+              {mode === "dark" ? "Turn light" : "Turn dark"}
+            </Button>
+          </Stack>
           {/* <PromoteInstall /> */}
           {/* <PromoteInstallBis /> */}
         </Stack>
