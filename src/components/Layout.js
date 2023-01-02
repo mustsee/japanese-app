@@ -6,10 +6,6 @@ function Root(props) {
       {...props}
       sx={[
         {
-          display: "flex",
-          flexDirection: "column",
-          width: "332px",
-          margin: "0 auto",
           minHeight: "100vh",
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
@@ -25,7 +21,7 @@ function MainSection(props) {
       className="Main"
       {...props}
       sx={[
-        { px: 2, pb: 2 },
+        { width: "332px", margin: "0 auto", px: 2, pb: 2 },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
       ]}
     />
