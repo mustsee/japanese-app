@@ -43,6 +43,12 @@ function Home() {
             the help of interactive exercises. Finish a section then jump to
             exercises for practice !
           </Typography>
+          <LinkWithButton
+            src="exercices"
+            text="Exercises"
+            mode={mode}
+            color="info"
+          />
           <Stack sx={{ display: "flex", flexDirection: "column", gap: "1em" }}>
             <LinkWithButton src="hiragana" text="Hiragana" mode={mode} />
             <LinkWithButton src="katakana" text="Katakana" mode={mode} />
@@ -65,12 +71,6 @@ function Home() {
               src="katakana-y-vowel-sounds"
               text="Katakana Y Vowel Sounds"
               mode={mode}
-            />
-            <LinkWithButton
-              src="exercices"
-              text="Exercises"
-              mode={mode}
-              color="info"
             />
           </Stack>
           <Button
