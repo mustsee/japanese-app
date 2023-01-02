@@ -2,7 +2,6 @@ import { Button, Stack, Typography } from "@mui/joy";
 import { useColorScheme } from "@mui/joy/styles";
 import { Header } from "components/Header";
 import { MainSection } from "components/Layout";
-import { useState } from "react";
 /* import { PromoteInstallBis } from "components/Header"; */
 import { Link } from "react-router-dom";
 import screenfull from "screenfull";
@@ -23,13 +22,10 @@ function LinkWithButton({ src, text, mode, color = "primary" }) {
 
 function Home() {
   const { mode, setMode } = useColorScheme();
-  const [isFullscreen, setIsFullScreen] = useState(false);
 
   const handleFullScreen = () => {
     if (screenfull.isEnabled) {
-      if (!isFullscreen)
-        screenfull.request().finally(() => setIsFullScreen(true));
-      else screenfull.exit().finally(() => setIsFullScreen(false));
+      screenfull.toggle();
     }
   };
 
@@ -89,7 +85,7 @@ function Home() {
               color="neutral"
               onClick={handleFullScreen}
             >
-              {isFullscreen ? "Exit full screen" : "Enter full screen"}
+              Full screen
             </Button>
             <Button
               variant="outlined"
