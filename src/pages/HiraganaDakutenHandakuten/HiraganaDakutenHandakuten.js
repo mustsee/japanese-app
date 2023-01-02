@@ -1,3 +1,4 @@
+import { Header } from "components/Header";
 import { MainSection } from "components/Layout";
 import { Main } from "components/Main";
 import { hiraganaAccents, hiraganaAccentsTable } from "data/hiragana";
@@ -5,15 +6,10 @@ import { hiraganaAccents, hiraganaAccentsTable } from "data/hiragana";
 const HiraganaDakutenHandakuten = () => {
   return (
     <>
-      <div />
+      <Header title="Hiragana Dakuten/Handakuten" />
       <MainSection>
-        <Main
-          title="Hiragana Dakuten/Handakuten"
-          list={hiraganaAccents}
-          table={hiraganaAccentsTable}
-        />
+        <Main list={hiraganaAccents} table={hiraganaAccentsTable} />
       </MainSection>
-      <div />
     </>
   );
 };

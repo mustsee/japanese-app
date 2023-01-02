@@ -1,3 +1,4 @@
+import { Header } from "components/Header";
 import { MainSection } from "components/Layout";
 import { Main } from "components/Main";
 import { katakanaAccents, katakanaAccentsTable } from "data/katakana";
@@ -5,15 +6,10 @@ import { katakanaAccents, katakanaAccentsTable } from "data/katakana";
 const KatakanaDakutenHandakuten = () => {
   return (
     <>
-      <div />
+      <Header title="Katakana Dakuten/Handakuten" />
       <MainSection>
-        <Main
-          title="Katakana Dakuten/Handakuten"
-          list={katakanaAccents}
-          table={katakanaAccentsTable}
-        />
+        <Main list={katakanaAccents} table={katakanaAccentsTable} />
       </MainSection>
-      <div />
     </>
   );
 };

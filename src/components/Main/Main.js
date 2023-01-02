@@ -1,5 +1,4 @@
 import { Box, Button, Card, Divider, Stack, Typography } from "@mui/joy";
-import { Header } from "components/Header";
 import { KanaTable } from "components/KanaTable";
 import { useState, createRef } from "react";
 import { ReactSketchCanvas } from "react-sketch-canvas";
@@ -47,7 +46,6 @@ const Main = (props) => {
 
   return (
     <Stack sx={{ display: "flex", flexDirection: "column", gap: "2em" }}>
-      <Header title={props.title} />
       <Box
         sx={{
           display: "flex",

@@ -24,10 +24,9 @@ function Home() {
 
   return (
     <>
-      <Stack />
+      <Header />
       <MainSection>
         <Stack sx={{ display: "flex", flexDirection: "column", gap: "2em" }}>
-          <Header />
           <Typography
             sx={{ textAlign: "center" }}
             level="h3"
@@ -84,7 +83,6 @@ function Home() {
           {/* <PromoteInstallBis /> */}
         </Stack>
       </MainSection>
-      <Stack />
     </>
   );
 }

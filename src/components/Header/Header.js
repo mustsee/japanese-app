@@ -38,6 +38,7 @@ const HeaderWrapper = (props) => {
         p: 0.5,
         userSelect: "none",
         borderRadius: 0,
+        mb: "2em",
       }}
     >
       {props.children}

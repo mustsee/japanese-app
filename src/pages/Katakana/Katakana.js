@@ -1,3 +1,4 @@
+import { Header } from "components/Header";
 import { MainSection } from "components/Layout";
 import { Main } from "components/Main";
 import { katakana, katakanaTable } from "data/katakana";
@@ -5,11 +6,10 @@ import { katakana, katakanaTable } from "data/katakana";
 function Katakana() {
   return (
     <>
-      <div />
+      <Header title="Katakana" />
       <MainSection>
-        <Main title="Katakana" list={katakana} table={katakanaTable} />
+        <Main list={katakana} table={katakanaTable} />
       </MainSection>
-      <div />
     </>
   );
 }

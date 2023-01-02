@@ -155,10 +155,9 @@ const Exercises = () => {
 
   return (
     <>
-      <div />
+      <Header title="Exercises" />
       <MainSection>
         <Stack sx={{ display: "flex", flexDirection: "column", gap: "2em" }}>
-          <Header title="Exercises" />
           <Score fail={score[0]} success={score[1]} total={exercise.length} />
           <Exercise
             exercise={exercise}
@@ -173,7 +172,6 @@ const Exercises = () => {
           />
         </Stack>
       </MainSection>
-      <div />
     </>
   );
 };

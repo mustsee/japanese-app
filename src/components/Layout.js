@@ -6,18 +6,10 @@ function Root(props) {
       {...props}
       sx={[
         {
-          display: "grid",
-          gridTemplateColumns: {
-            xs: "minmax(0px, 1fr) minmax(332px, 332px) minmax(0px, 1fr)",
-            // sm: "minmax(0px, 1fr) minmax(360px, 360px) minmax(0px, 1fr)",
-            // md: "minmax(200px, 1fr) minmax(332px, 332px) minmax(200px, 1fr) ",
-          },
-          // gridTemplateRows: "64px 1fr",
-          gridTemplateRows: {
-            xs: "1fr",
-            // xs: "200px 1fr 200px",
-            // md: "1fr",
-          },
+          display: "flex",
+          flexDirection: "column",
+          width: "332px",
+          margin: "0 auto",
           minHeight: "100vh",
         },
         ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
@@ -32,7 +24,10 @@ function MainSection(props) {
       component="main"
       className="Main"
       {...props}
-      sx={[{ p: 2 }, ...(Array.isArray(props.sx) ? props.sx : [props.sx])]}
+      sx={[
+        { px: 2, pb: 2 },
+        ...(Array.isArray(props.sx) ? props.sx : [props.sx]),
+      ]}
     />
   );
 }

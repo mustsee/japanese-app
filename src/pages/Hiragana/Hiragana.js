@@ -1,3 +1,4 @@
+import { Header } from "components/Header";
 import { MainSection } from "components/Layout";
 import { Main } from "components/Main";
 import { hiragana, hiraganaTable } from "data/hiragana";
@@ -5,11 +6,10 @@ import { hiragana, hiraganaTable } from "data/hiragana";
 function Hiragana() {
   return (
     <>
-      <div />
+      <Header title="Hiragana" />
       <MainSection>
-        <Main title="Hiragana" list={hiragana} table={hiraganaTable} />
+        <Main list={hiragana} table={hiraganaTable} />
       </MainSection>
-      <div />
     </>
   );
 }
