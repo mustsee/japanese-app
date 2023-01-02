@@ -49,12 +49,21 @@ function Home() {
             the help of interactive exercises. Finish a section then jump to
             exercises for practice !
           </Typography>
-          <LinkWithButton
-            src="exercices"
-            text="Exercises"
-            mode={mode}
-            color="info"
-          />
+          <Stack sx={{ display: "flex", flexDirection: "column", gap: "1em" }}>
+            <LinkWithButton
+              src="exercices"
+              text="Exercises"
+              mode={mode}
+              color="info"
+            />
+            <LinkWithButton
+              src="vocabulary"
+              text="Vocabulary"
+              mode={mode}
+              color="info"
+            />
+          </Stack>
+
           <Stack sx={{ display: "flex", flexDirection: "column", gap: "1em" }}>
             <LinkWithButton src="hiragana" text="Hiragana" mode={mode} />
             <LinkWithButton src="katakana" text="Katakana" mode={mode} />
