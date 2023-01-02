@@ -1,5 +1,9 @@
 const kanji = {
   人: {
+    kanji: "人",
+    // TODO: The key here is wrong
+    // Should be a translation key
+    // Romaji key should be left for : "hito"
     romaji: {
       FR: [
         {
@@ -12,11 +16,12 @@ const kanji = {
         },
       ],
     },
-    kunyomi: ["ひと"],
+    kunyomi: ["ひと"], // Modify like romaji, to be able to show multiple -> Object
     onyomi: [],
     src: "https://hochanh.github.io/rtk/人/index.html",
   },
   男: {
+    kanji: "男",
     romaji: {
       FR: [
         {
@@ -34,6 +39,7 @@ const kanji = {
     src: "https://hochanh.github.io/rtk/男/index.html",
   },
   女: {
+    kanji: "女",
     romaji: {
       FR: [
         {
@@ -51,6 +57,7 @@ const kanji = {
     src: "https://hochanh.github.io/rtk/女/index.html",
   },
   子: {
+    kanji: "子",
     romaji: {
       FR: [
         {
@@ -68,6 +75,7 @@ const kanji = {
     src: "https://hochanh.github.io/rtk/子/index.html",
   },
   日: {
+    kanji: "日",
     romaji: {
       FR: [
         {
@@ -88,6 +96,7 @@ const kanji = {
     src: "https://hochanh.github.io/rtk/日/index.html",
   },
   月: {
+    kanji: "月",
     romaji: {
       FR: [
         {
@@ -108,6 +117,7 @@ const kanji = {
     src: "https://hochanh.github.io/rtk/月/index.html",
   },
   時: {
+    kanji: "時",
     romaji: {
       FR: [
         {
@@ -126,6 +136,7 @@ const kanji = {
     src: "https://hochanh.github.io/rtk/時/index.html",
   },
   水: {
+    kanji: "水",
     romaji: {
       FR: [
         {
@@ -143,10 +154,11 @@ const kanji = {
     src: "https://hochanh.github.io/rtk/水/index.html",
   },
   火: {
+    kanji: "火",
     romaji: {
       FR: [
         {
-          translation: "le feux",
+          translation: "le feu",
         },
       ],
       EN: [
@@ -160,6 +172,7 @@ const kanji = {
     src: "https://hochanh.github.io/rtk/火/index.html",
   },
   土: {
+    kanji: "土",
     romaji: {
       FR: [
         {
@@ -179,6 +192,8 @@ const kanji = {
     src: "https://hochanh.github.io/rtk/土/index.html",
   },
 };
+
+export { kanji };
 
 /* let updatedKanji = {};
 const addComments = (kanji) => {
