@@ -191,6 +191,136 @@ const kanji = {
     onyomi: [],
     src: "https://hochanh.github.io/rtk/土/index.html",
   },
+  風: {
+    kanji: "風",
+    romaji: {
+      FR: [
+        {
+          translation: "le vent",
+        },
+      ],
+    },
+    kunyomi: ["かぜ"],
+    onyomi: [],
+    src: "",
+  },
+  空: {
+    kanji: "空",
+    romaji: {
+      FR: [
+        {
+          translation: "le ciel",
+        },
+      ],
+    },
+    kunyomi: ["そら"],
+    onyomi: [],
+    src: "",
+  },
+  山: {
+    kanji: "山",
+    romaji: {
+      FR: [
+        {
+          translation: "la montagne",
+        },
+      ],
+    },
+    kunyomi: ["やま"],
+    onyomi: [],
+    src: "",
+  },
+  川: {
+    kanji: "川",
+    romaji: {
+      FR: [
+        {
+          translation: "la rivière",
+        },
+      ],
+    },
+    kunyomi: ["かわ"],
+    onyomi: [],
+    src: "",
+  },
+  木: {
+    kanji: "木",
+    romaji: {
+      FR: [
+        {
+          translation: "l'arbre",
+        },
+      ],
+    },
+    kunyomi: ["き"],
+    onyomi: [],
+    src: "",
+  },
+  花: {
+    kanji: "花",
+    romaji: {
+      FR: [
+        {
+          translation: "la fleur",
+        },
+      ],
+    },
+    kunyomi: ["はな"],
+    onyomi: [],
+    src: "",
+  },
+  雨: {
+    kanji: "雨",
+    romaji: {
+      FR: [
+        {
+          translation: "la pluie",
+        },
+      ],
+    },
+    kunyomi: ["あめ"],
+    onyomi: [],
+    src: "",
+  },
+  雪: {
+    kanji: "雪",
+    romaji: {
+      FR: [
+        {
+          translation: "la neige",
+        },
+      ],
+    },
+    kunyomi: ["ゆき"],
+    onyomi: [],
+    src: "",
+  },
+  金: {
+    kanji: "金",
+    romaji: {
+      FR: [
+        {
+          translation: "l'argent",
+        },
+      ],
+    },
+    kunyomi: ["かね"],
+    onyomi: [],
+    src: "",
+  },
+  刀: {
+    kanji: "刀",
+    romaji: {
+      FR: [
+        {
+          translation: "le sabre",
+        },
+      ],
+    },
+    kunyomi: ["かたな"],
+    onyomi: [],
+    src: "",
+  },
 };
 
 export { kanji };
